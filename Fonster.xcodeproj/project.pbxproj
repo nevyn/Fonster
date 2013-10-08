@@ -1,0 +1,459 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05B971AF1804BE3100BCD658 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971AE1804BE3100BCD658 /* Foundation.framework */; };
+		05B971B11804BE3100BCD658 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971B01804BE3100BCD658 /* CoreGraphics.framework */; };
+		05B971B31804BE3100BCD658 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971B21804BE3100BCD658 /* UIKit.framework */; };
+		05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B971B71804BE3100BCD658 /* InfoPlist.strings */; };
+		05B971BB1804BE3100BCD658 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971BA1804BE3100BCD658 /* main.m */; };
+		05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971BE1804BE3100BCD658 /* TCAppDelegate.m */; };
+		05B971C11804BE3100BCD658 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B971C01804BE3100BCD658 /* Images.xcassets */; };
+		05B971C81804BE3100BCD658 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971C71804BE3100BCD658 /* XCTest.framework */; };
+		05B971C91804BE3100BCD658 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971AE1804BE3100BCD658 /* Foundation.framework */; };
+		05B971CA1804BE3100BCD658 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971B21804BE3100BCD658 /* UIKit.framework */; };
+		05B971D21804BE3100BCD658 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B971D01804BE3100BCD658 /* InfoPlist.strings */; };
+		05B971D41804BE3100BCD658 /* FonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971D31804BE3100BCD658 /* FonsterTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05B971CB1804BE3100BCD658 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B971A31804BE3100BCD658 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B971AA1804BE3100BCD658;
+			remoteInfo = Fonster;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05B971AB1804BE3100BCD658 /* Fonster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fonster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B971AE1804BE3100BCD658 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		05B971B01804BE3100BCD658 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		05B971B21804BE3100BCD658 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		05B971B61804BE3100BCD658 /* Fonster-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fonster-Info.plist"; sourceTree = "<group>"; };
+		05B971B81804BE3100BCD658 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05B971BA1804BE3100BCD658 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05B971BC1804BE3100BCD658 /* Fonster-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fonster-Prefix.pch"; sourceTree = "<group>"; };
+		05B971BD1804BE3100BCD658 /* TCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAppDelegate.h; sourceTree = "<group>"; };
+		05B971BE1804BE3100BCD658 /* TCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAppDelegate.m; sourceTree = "<group>"; };
+		05B971C01804BE3100BCD658 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		05B971C61804BE3100BCD658 /* FonsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FonsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B971C71804BE3100BCD658 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		05B971CF1804BE3100BCD658 /* FonsterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FonsterTests-Info.plist"; sourceTree = "<group>"; };
+		05B971D11804BE3100BCD658 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05B971D31804BE3100BCD658 /* FonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FonsterTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05B971A81804BE3100BCD658 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B971B11804BE3100BCD658 /* CoreGraphics.framework in Frameworks */,
+				05B971B31804BE3100BCD658 /* UIKit.framework in Frameworks */,
+				05B971AF1804BE3100BCD658 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B971C31804BE3100BCD658 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B971C81804BE3100BCD658 /* XCTest.framework in Frameworks */,
+				05B971CA1804BE3100BCD658 /* UIKit.framework in Frameworks */,
+				05B971C91804BE3100BCD658 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05B971A21804BE3100BCD658 = {
+			isa = PBXGroup;
+			children = (
+				05B971B41804BE3100BCD658 /* Fonster */,
+				05B971CD1804BE3100BCD658 /* FonsterTests */,
+				05B971AD1804BE3100BCD658 /* Frameworks */,
+				05B971AC1804BE3100BCD658 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05B971AC1804BE3100BCD658 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05B971AB1804BE3100BCD658 /* Fonster.app */,
+				05B971C61804BE3100BCD658 /* FonsterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05B971AD1804BE3100BCD658 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05B971AE1804BE3100BCD658 /* Foundation.framework */,
+				05B971B01804BE3100BCD658 /* CoreGraphics.framework */,
+				05B971B21804BE3100BCD658 /* UIKit.framework */,
+				05B971C71804BE3100BCD658 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05B971B41804BE3100BCD658 /* Fonster */ = {
+			isa = PBXGroup;
+			children = (
+				05B971BD1804BE3100BCD658 /* TCAppDelegate.h */,
+				05B971BE1804BE3100BCD658 /* TCAppDelegate.m */,
+				05B971C01804BE3100BCD658 /* Images.xcassets */,
+				05B971B51804BE3100BCD658 /* Supporting Files */,
+			);
+			path = Fonster;
+			sourceTree = "<group>";
+		};
+		05B971B51804BE3100BCD658 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B971B61804BE3100BCD658 /* Fonster-Info.plist */,
+				05B971B71804BE3100BCD658 /* InfoPlist.strings */,
+				05B971BA1804BE3100BCD658 /* main.m */,
+				05B971BC1804BE3100BCD658 /* Fonster-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B971CD1804BE3100BCD658 /* FonsterTests */ = {
+			isa = PBXGroup;
+			children = (
+				05B971D31804BE3100BCD658 /* FonsterTests.m */,
+				05B971CE1804BE3100BCD658 /* Supporting Files */,
+			);
+			path = FonsterTests;
+			sourceTree = "<group>";
+		};
+		05B971CE1804BE3100BCD658 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B971CF1804BE3100BCD658 /* FonsterTests-Info.plist */,
+				05B971D01804BE3100BCD658 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05B971AA1804BE3100BCD658 /* Fonster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B971D71804BE3100BCD658 /* Build configuration list for PBXNativeTarget "Fonster" */;
+			buildPhases = (
+				05B971A71804BE3100BCD658 /* Sources */,
+				05B971A81804BE3100BCD658 /* Frameworks */,
+				05B971A91804BE3100BCD658 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Fonster;
+			productName = Fonster;
+			productReference = 05B971AB1804BE3100BCD658 /* Fonster.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05B971C51804BE3100BCD658 /* FonsterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B971DA1804BE3100BCD658 /* Build configuration list for PBXNativeTarget "FonsterTests" */;
+			buildPhases = (
+				05B971C21804BE3100BCD658 /* Sources */,
+				05B971C31804BE3100BCD658 /* Frameworks */,
+				05B971C41804BE3100BCD658 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B971CC1804BE3100BCD658 /* PBXTargetDependency */,
+			);
+			name = FonsterTests;
+			productName = FonsterTests;
+			productReference = 05B971C61804BE3100BCD658 /* FonsterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05B971A31804BE3100BCD658 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TC;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = ThirdCog;
+				TargetAttributes = {
+					05B971C51804BE3100BCD658 = {
+						TestTargetID = 05B971AA1804BE3100BCD658;
+					};
+				};
+			};
+			buildConfigurationList = 05B971A61804BE3100BCD658 /* Build configuration list for PBXProject "Fonster" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05B971A21804BE3100BCD658;
+			productRefGroup = 05B971AC1804BE3100BCD658 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05B971AA1804BE3100BCD658 /* Fonster */,
+				05B971C51804BE3100BCD658 /* FonsterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05B971A91804BE3100BCD658 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */,
+				05B971C11804BE3100BCD658 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B971C41804BE3100BCD658 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B971D21804BE3100BCD658 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05B971A71804BE3100BCD658 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B971BB1804BE3100BCD658 /* main.m in Sources */,
+				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B971C21804BE3100BCD658 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B971D41804BE3100BCD658 /* FonsterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05B971CC1804BE3100BCD658 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B971AA1804BE3100BCD658 /* Fonster */;
+			targetProxy = 05B971CB1804BE3100BCD658 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05B971B71804BE3100BCD658 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B971B81804BE3100BCD658 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		05B971D01804BE3100BCD658 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B971D11804BE3100BCD658 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05B971D51804BE3100BCD658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		05B971D61804BE3100BCD658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05B971D81804BE3100BCD658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fonster/Fonster-Prefix.pch";
+				INFOPLIST_FILE = "Fonster/Fonster-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05B971D91804BE3100BCD658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fonster/Fonster-Prefix.pch";
+				INFOPLIST_FILE = "Fonster/Fonster-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		05B971DB1804BE3100BCD658 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fonster.app/Fonster";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fonster/Fonster-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FonsterTests/FonsterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		05B971DC1804BE3100BCD658 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Fonster.app/Fonster";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Fonster/Fonster-Prefix.pch";
+				INFOPLIST_FILE = "FonsterTests/FonsterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05B971A61804BE3100BCD658 /* Build configuration list for PBXProject "Fonster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B971D51804BE3100BCD658 /* Debug */,
+				05B971D61804BE3100BCD658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B971D71804BE3100BCD658 /* Build configuration list for PBXNativeTarget "Fonster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B971D81804BE3100BCD658 /* Debug */,
+				05B971D91804BE3100BCD658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		05B971DA1804BE3100BCD658 /* Build configuration list for PBXNativeTarget "FonsterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B971DB1804BE3100BCD658 /* Debug */,
+				05B971DC1804BE3100BCD658 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05B971A31804BE3100BCD658 /* Project object */;
+}
