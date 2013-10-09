@@ -23,6 +23,7 @@
 		05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E01804BF0300BCD658 /* TCBrowser.storyboard */; };
 		05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971E31804C02100BCD658 /* TCBrowserViewController.m */; };
 		05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E71804C42D00BCD658 /* Bristle Grass.jpg */; };
+		05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6718060425005E8899 /* TCWindowManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		05B971E21804C02100BCD658 /* TCBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBrowserViewController.h; sourceTree = "<group>"; };
 		05B971E31804C02100BCD658 /* TCBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBrowserViewController.m; sourceTree = "<group>"; };
 		05B971E71804C42D00BCD658 /* Bristle Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Bristle Grass.jpg"; path = "../../../../../Library/Desktop Pictures/Bristle Grass.jpg"; sourceTree = "<group>"; };
+		05E8BB6618060425005E8899 /* TCWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWindowManager.h; sourceTree = "<group>"; };
+		05E8BB6718060425005E8899 /* TCWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWindowManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,8 @@
 				05B971BE1804BE3100BCD658 /* TCAppDelegate.m */,
 				05B971DD1804BE5400BCD658 /* TCWindow.h */,
 				05B971DE1804BE5400BCD658 /* TCWindow.m */,
+				05E8BB6618060425005E8899 /* TCWindowManager.h */,
+				05E8BB6718060425005E8899 /* TCWindowManager.m */,
 				05B971E21804C02100BCD658 /* TCBrowserViewController.h */,
 				05B971E31804C02100BCD658 /* TCBrowserViewController.m */,
 				05B971E01804BF0300BCD658 /* TCBrowser.storyboard */,
@@ -260,6 +265,7 @@
 			files = (
 				05B971BB1804BE3100BCD658 /* main.m in Sources */,
 				05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */,
+				05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */,
 				05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */,
 				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
 			);
@@ -464,6 +470,7 @@
 				05B971D91804BE3100BCD658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05B971DA1804BE3100BCD658 /* Build configuration list for PBXNativeTarget "FonsterTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +479,7 @@
 				05B971DC1804BE3100BCD658 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,17 +1,20 @@
 #import "TCAppDelegate.h"
+#import "TCWindowManager.h"
 #import "TCWindow.h"
 
 @implementation TCAppDelegate
 {
-    NSMutableArray *_windows;
+    TCWindowManager *_wm;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    _windows = [NSMutableArray new];
+    _wm = [TCWindowManager new];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window makeKeyAndVisible];
+    
     UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Bristle Grass.jpg"]];
     bg.frame = _window.bounds;
     bg.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
@@ -36,22 +39,6 @@
     w.backgroundColor = [UIColor grayColor];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TCBrowser" bundle:nil];
     w.rootViewController = [storyboard instantiateInitialViewController];
-    __weak id weakSelf = self; __weak TCWindow *weakW = w;
-    w.closer = ^{
-        [UIView animateWithDuration:0.65 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
-            weakW.transform = CGAffineTransformMakeScale(0.7, 0.7);
-            weakW.alpha = 0;
-        } completion:^(BOOL finished) {
-            [[weakSelf valueForKey:@"windows"] removeObject:weakW];
-        }];
-    };
-    [_windows addObject:w];
-    w.alpha = 0;
-    w.transform = CGAffineTransformMakeScale(0.7, 0.7);
-    [w makeKeyAndVisible];
-    [UIView animateWithDuration:0.45 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
-        w.transform = CGAffineTransformIdentity;
-        w.alpha = 1;
-    } completion:nil];
+    [_wm showWindow:w];
 }
 @end
