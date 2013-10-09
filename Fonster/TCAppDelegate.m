@@ -28,6 +28,8 @@
     return YES;
 }
 
+// TODO: Make a UIViewController container that contains "windows" instead, with a single UIWindow in-app
+
 - (IBAction)newWindow
 {
     TCWindow *w = [[TCWindow alloc] initWithFrame:CGRectMake(50, 50, 300, 400)];
