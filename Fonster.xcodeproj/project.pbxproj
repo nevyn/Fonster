@@ -122,13 +122,8 @@
 			children = (
 				05B971BD1804BE3100BCD658 /* TCAppDelegate.h */,
 				05B971BE1804BE3100BCD658 /* TCAppDelegate.m */,
-				05B971DD1804BE5400BCD658 /* TCWindow.h */,
-				05B971DE1804BE5400BCD658 /* TCWindow.m */,
-				05E8BB6618060425005E8899 /* TCWindowManager.h */,
-				05E8BB6718060425005E8899 /* TCWindowManager.m */,
-				05B971E21804C02100BCD658 /* TCBrowserViewController.h */,
-				05B971E31804C02100BCD658 /* TCBrowserViewController.m */,
-				05B971E01804BF0300BCD658 /* TCBrowser.storyboard */,
+				05E8BB6918060E2E005E8899 /* Window management */,
+				05E8BB6A18060E35005E8899 /* App contents */,
 				05B971E71804C42D00BCD658 /* Bristle Grass.jpg */,
 				05B971C01804BE3100BCD658 /* Images.xcassets */,
 				05B971B51804BE3100BCD658 /* Supporting Files */,
@@ -163,6 +158,27 @@
 				05B971D01804BE3100BCD658 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05E8BB6918060E2E005E8899 /* Window management */ = {
+			isa = PBXGroup;
+			children = (
+				05B971DD1804BE5400BCD658 /* TCWindow.h */,
+				05B971DE1804BE5400BCD658 /* TCWindow.m */,
+				05E8BB6618060425005E8899 /* TCWindowManager.h */,
+				05E8BB6718060425005E8899 /* TCWindowManager.m */,
+			);
+			name = "Window management";
+			sourceTree = "<group>";
+		};
+		05E8BB6A18060E35005E8899 /* App contents */ = {
+			isa = PBXGroup;
+			children = (
+				05B971E21804C02100BCD658 /* TCBrowserViewController.h */,
+				05B971E31804C02100BCD658 /* TCBrowserViewController.m */,
+				05B971E01804BF0300BCD658 /* TCBrowser.storyboard */,
+			);
+			name = "App contents";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

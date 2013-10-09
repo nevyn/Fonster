@@ -17,6 +17,8 @@ static CGRect gLastFrame;
     UIView *_resizeWidget;
     UIButton *_closeWidget;
     CGRect _startFrame;
+    UIAttachmentBehavior *_movementSpring;
+    UIDynamicItemBehavior *_physics;
 }
 @end
 
@@ -77,9 +79,19 @@ static CGRect gLastFrame;
 
 - (void)move:(UIPanGestureRecognizer*)grec
 {
+    
     if(grec.state == UIGestureRecognizerStateBegan) {
         [self.delegate windowRequestsForeground:self];
-        _startFrame = self.frame;
+        CGRect r = _startFrame = self.frame;
+        r = CGRectOffset(r, r.size.width/2, r.size.height/2);
+        _movementSpring = [[UIAttachmentBehavior alloc] initWithItem:self attachedToAnchor:r.origin];
+        _movementSpring.length = 0;
+        [[self.delegate animatorForWindow:self] addBehavior:_movementSpring];
+        if(!_physics) {
+            _physics = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
+            _physics.resistance = 20;
+            [[self.delegate animatorForWindow:self] addBehavior:_physics];
+        }
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGRect r = self.frame;
         CGPoint diff = [grec translationInView:self];
@@ -87,7 +99,16 @@ static CGRect gLastFrame;
             _startFrame.origin.x + diff.x,
             _startFrame.origin.y + diff.y
         };
-        gLastFrame = self.frame = r;
+        gLastFrame = r;
+        r = CGRectOffset(r, r.size.width/2, r.size.height/2);
+        _movementSpring.anchorPoint = r.origin;
+    } else if(grec.state == UIGestureRecognizerStateEnded || grec.state == UIGestureRecognizerStateCancelled) {
+        UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[self] mode:UIPushBehaviorModeInstantaneous];
+        push.magnitude = 1;
+        push.pushDirection = CGVectorMake([grec velocityInView:self].x*0.2, [grec velocityInView:self].y*0.2);
+        [[self.delegate animatorForWindow:self] addBehavior:push];
+        [[self.delegate animatorForWindow:self] removeBehavior:_movementSpring];
+        _movementSpring = nil;
     }
 }
 
@@ -110,6 +131,7 @@ static CGRect gLastFrame;
 
 - (IBAction)close:(id)sender
 {
+    [[self.delegate animatorForWindow:self] removeBehavior:_physics];
     [self.delegate windowRequestsClose:self];
 }
 

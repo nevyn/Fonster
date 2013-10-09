@@ -12,6 +12,7 @@
 @interface TCWindowManager () <TCWindowDelegate>
 {
     NSMutableArray *_windows;
+    UIDynamicAnimator *_animator;
 }
 @end
 
@@ -33,6 +34,8 @@
     bg.contentMode = UIViewContentModeScaleAspectFill;
     [root addSubview:bg];
     root.backgroundColor = [UIColor whiteColor];
+    
+    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:root];
     
     self.view = root;
 }
@@ -68,5 +71,10 @@
 - (void)windowRequestsForeground:(TCWindow *)window
 {
     [self.view addSubview:window];
+}
+
+- (UIDynamicAnimator*)animatorForWindow:(TCWindow*)window
+{
+    return _animator;
 }
 @end
