@@ -1,49 +1,55 @@
-//
-//  TCAppDelegate.m
-//  Fonster
-//
-//  Created by Joachim Bengtsson on 2013-10-09.
-//  Copyright (c) 2013 ThirdCog. All rights reserved.
-//
-
 #import "TCAppDelegate.h"
+#import "TCWindow.h"
 
 @implementation TCAppDelegate
+{
+    NSMutableArray *_windows;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    _windows = [NSMutableArray new];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Bristle Grass.jpg"]];
+    bg.frame = _window.bounds;
+    bg.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    bg.contentMode = UIViewContentModeScaleAspectFill;
+    [self.window addSubview:bg];
+    self.window.backgroundColor = [UIColor whiteColor];
+
+    
+    UIButton *plus = [UIButton buttonWithType:UIButtonTypeSystem];
+    [plus addTarget:self action:@selector(newWindow) forControlEvents:UIControlEventTouchUpInside];
+    [plus setTitle:@"+" forState:0];
+    plus.frame = CGRectMake(50, 50, 50, 50);
+    [self.window addSubview:plus];
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+- (IBAction)newWindow
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    TCWindow *w = [[TCWindow alloc] initWithFrame:CGRectMake(50, 50, 300, 400)];
+    w.backgroundColor = [UIColor grayColor];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TCBrowser" bundle:nil];
+    w.rootViewController = [storyboard instantiateInitialViewController];
+    __weak id weakSelf = self; __weak TCWindow *weakW = w;
+    w.closer = ^{
+        [UIView animateWithDuration:0.65 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
+            weakW.transform = CGAffineTransformMakeScale(0.7, 0.7);
+            weakW.alpha = 0;
+        } completion:^(BOOL finished) {
+            [[weakSelf valueForKey:@"windows"] removeObject:weakW];
+        }];
+    };
+    [_windows addObject:w];
+    w.alpha = 0;
+    w.transform = CGAffineTransformMakeScale(0.7, 0.7);
+    [w makeKeyAndVisible];
+    [UIView animateWithDuration:0.45 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
+        w.transform = CGAffineTransformIdentity;
+        w.alpha = 1;
+    } completion:nil];
 }
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end

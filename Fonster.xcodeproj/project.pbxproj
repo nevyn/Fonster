@@ -19,6 +19,10 @@
 		05B971CA1804BE3100BCD658 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B971B21804BE3100BCD658 /* UIKit.framework */; };
 		05B971D21804BE3100BCD658 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B971D01804BE3100BCD658 /* InfoPlist.strings */; };
 		05B971D41804BE3100BCD658 /* FonsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971D31804BE3100BCD658 /* FonsterTests.m */; };
+		05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971DE1804BE5400BCD658 /* TCWindow.m */; };
+		05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E01804BF0300BCD658 /* TCBrowser.storyboard */; };
+		05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971E31804C02100BCD658 /* TCBrowserViewController.m */; };
+		05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E71804C42D00BCD658 /* Bristle Grass.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 		05B971CF1804BE3100BCD658 /* FonsterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FonsterTests-Info.plist"; sourceTree = "<group>"; };
 		05B971D11804BE3100BCD658 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05B971D31804BE3100BCD658 /* FonsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FonsterTests.m; sourceTree = "<group>"; };
+		05B971DD1804BE5400BCD658 /* TCWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWindow.h; sourceTree = "<group>"; };
+		05B971DE1804BE5400BCD658 /* TCWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWindow.m; sourceTree = "<group>"; };
+		05B971E01804BF0300BCD658 /* TCBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TCBrowser.storyboard; sourceTree = "<group>"; };
+		05B971E21804C02100BCD658 /* TCBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBrowserViewController.h; sourceTree = "<group>"; };
+		05B971E31804C02100BCD658 /* TCBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBrowserViewController.m; sourceTree = "<group>"; };
+		05B971E71804C42D00BCD658 /* Bristle Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Bristle Grass.jpg"; path = "../../../../../Library/Desktop Pictures/Bristle Grass.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +119,12 @@
 			children = (
 				05B971BD1804BE3100BCD658 /* TCAppDelegate.h */,
 				05B971BE1804BE3100BCD658 /* TCAppDelegate.m */,
+				05B971DD1804BE5400BCD658 /* TCWindow.h */,
+				05B971DE1804BE5400BCD658 /* TCWindow.m */,
+				05B971E21804C02100BCD658 /* TCBrowserViewController.h */,
+				05B971E31804C02100BCD658 /* TCBrowserViewController.m */,
+				05B971E01804BF0300BCD658 /* TCBrowser.storyboard */,
+				05B971E71804C42D00BCD658 /* Bristle Grass.jpg */,
 				05B971C01804BE3100BCD658 /* Images.xcassets */,
 				05B971B51804BE3100BCD658 /* Supporting Files */,
 			);
@@ -221,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */,
+				05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */,
+				05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */,
 				05B971C11804BE3100BCD658 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B971BB1804BE3100BCD658 /* main.m in Sources */,
+				05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */,
+				05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */,
 				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
