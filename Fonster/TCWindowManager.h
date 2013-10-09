@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class TCWindow;
 
-@interface TCWindowManager : NSObject
+@interface TCWindowManager : UIViewController
 - (id)init;
 - (void)showWindow:(TCWindow*)w;
 @end

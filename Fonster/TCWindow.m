@@ -11,10 +11,6 @@
 static CGRect gLastFrame;
 
 @interface TCWindow ()
-
-@end
-
-@implementation TCWindow
 {
     UIToolbar *_toolbar;
     UIView *_background;
@@ -22,8 +18,10 @@ static CGRect gLastFrame;
     UIButton *_closeWidget;
     CGRect _startFrame;
 }
+@end
 
-- (id)initWithFrame:(CGRect)frame
+@implementation TCWindow
+- (id)initWithFrame:(CGRect)frame rootViewController:(UIViewController*)rootViewController;
 {
     if(!CGRectEqualToRect(gLastFrame, CGRectZero))
         frame = gLastFrame;
@@ -31,11 +29,13 @@ static CGRect gLastFrame;
     if(!(self = [super initWithFrame:frame]))
         return nil;
     
+    _rootViewController = rootViewController;
+    
     self.backgroundColor = [UIColor clearColor];
     _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 30)];
     _background = [[UIView alloc] initWithFrame:self.bounds];
     _background.frame = CGRectInset(_background.frame, -2, -2);
-    _background.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.1];
+    _background.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.05];
     _background.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     _resizeWidget = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     _resizeWidget.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.1];
@@ -46,6 +46,7 @@ static CGRect gLastFrame;
     [self addSubview:_toolbar];
     [self addSubview:_resizeWidget];
     [self addSubview:_closeWidget];
+    [self addSubview:_rootViewController.view];
     
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
     [_toolbar addGestureRecognizer:move];
@@ -77,7 +78,7 @@ static CGRect gLastFrame;
 - (void)move:(UIPanGestureRecognizer*)grec
 {
     if(grec.state == UIGestureRecognizerStateBegan) {
-        [self makeKeyAndVisible];
+        [self.delegate windowRequestsForeground:self];
         _startFrame = self.frame;
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGRect r = self.frame;
@@ -93,7 +94,7 @@ static CGRect gLastFrame;
 - (void)resize:(UIPanGestureRecognizer*)grec
 {
     if(grec.state == UIGestureRecognizerStateBegan) {
-        [self makeKeyAndVisible];
+        [self.delegate windowRequestsForeground:self];
         _startFrame = self.frame;
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGPoint diff = [grec translationInView:self];
@@ -109,7 +110,7 @@ static CGRect gLastFrame;
 
 - (IBAction)close:(id)sender
 {
-    self.closer();
+    [self.delegate windowRequestsClose:self];
 }
 
 @end

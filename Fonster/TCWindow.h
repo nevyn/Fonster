@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol TCWindowDelegate;
 
-@interface TCWindow : UIWindow
-@property(copy) dispatch_block_t closer;
+@interface TCWindow : UIView
+- (id)initWithFrame:(CGRect)r rootViewController:(UIViewController*)rootViewController;
+@property(readonly) UIViewController *rootViewController;
+@property(weak) id<TCWindowDelegate> delegate;
+- (IBAction)close:(id)sender;
+@end
+
+@protocol TCWindowDelegate <NSObject>
+- (void)windowRequestsClose:(TCWindow*)window;
+- (void)windowRequestsForeground:(TCWindow*)window;
 @end
