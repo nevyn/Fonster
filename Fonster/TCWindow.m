@@ -77,6 +77,7 @@ static CGRect gLastFrame;
 - (void)move:(UIPanGestureRecognizer*)grec
 {
     if(grec.state == UIGestureRecognizerStateBegan) {
+        [self makeKeyAndVisible];
         _startFrame = self.frame;
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGRect r = self.frame;
@@ -92,6 +93,7 @@ static CGRect gLastFrame;
 - (void)resize:(UIPanGestureRecognizer*)grec
 {
     if(grec.state == UIGestureRecognizerStateBegan) {
+        [self makeKeyAndVisible];
         _startFrame = self.frame;
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGPoint diff = [grec translationInView:self];
