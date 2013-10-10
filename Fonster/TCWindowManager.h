@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 @class TCWindow;
+@class TCDesktopViewController;
 
 @interface TCWindowManager : UIViewController
+@property(readonly) TCDesktopViewController *desktop;
 - (id)init;
 - (void)showWindow:(TCWindow*)w;
 @end

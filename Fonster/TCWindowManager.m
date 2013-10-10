@@ -8,6 +8,7 @@
 
 #import "TCWindowManager.h"
 #import "TCWindow.h"
+#import "TCDesktopViewController.h"
 
 @interface TCWindowManager () <TCWindowDelegate>
 {
@@ -22,6 +23,7 @@
     if(!(self = [super init]))
         return nil;
     _windows = [NSMutableArray new];
+    _desktop = [[TCDesktopViewController alloc] init];
     return self;
 }
 
@@ -32,8 +34,14 @@
     bg.frame = root.bounds;
     bg.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     bg.contentMode = UIViewContentModeScaleAspectFill;
-    [root addSubview:bg];
     root.backgroundColor = [UIColor whiteColor];
+    
+    [self addChildViewController:_desktop];
+    [root addSubview:_desktop.view];
+    _desktop.view.frame = root.bounds;
+    _desktop.collectionView.backgroundView = bg;
+    _desktop.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    [_desktop didMoveToParentViewController:self];
     
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:root];
     

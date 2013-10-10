@@ -1,6 +1,7 @@
 #import "TCAppDelegate.h"
 #import "TCWindowManager.h"
 #import "TCWindow.h"
+#import "TCDesktopViewController.h"
 
 /*
     yess:
@@ -41,15 +42,12 @@
     self.window.rootViewController = _wm;
     [self.window makeKeyAndVisible];
     
-    UIButton *plus = [UIButton buttonWithType:UIButtonTypeSystem];
-    [plus addTarget:self action:@selector(newWindow) forControlEvents:UIControlEventTouchUpInside];
-    [plus setTitle:@"+" forState:0];
-    plus.frame = CGRectMake(50, 50, 50, 50);
-    [_wm.view addSubview:plus];
+    [_wm.desktop addIcon:nil title:@"Safari" target:self action:@selector(newBrowser)];
+    
     return YES;
 }
 
-- (IBAction)newWindow
+- (IBAction)newBrowser
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TCBrowser" bundle:nil];
     TCWindow *w = [[TCWindow alloc]

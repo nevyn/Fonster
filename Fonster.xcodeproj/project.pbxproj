@@ -35,6 +35,8 @@
 		05E8BB871806C462005E8899 /* TCImageViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB7A1806C462005E8899 /* TCImageViewerController.m */; };
 		05E8BB881806C462005E8899 /* TCTextViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB7C1806C462005E8899 /* TCTextViewerController.m */; };
 		05E8BB891806C462005E8899 /* TCVideoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB7E1806C462005E8899 /* TCVideoViewerController.m */; };
+		05E8BB8E1806C56E005E8899 /* TCDesktopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB8C1806C56E005E8899 /* TCDesktopViewController.m */; };
+		05E8BB911806C70A005E8899 /* TCDesktopIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB901806C70A005E8899 /* TCDesktopIconCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +71,7 @@
 		05B971E01804BF0300BCD658 /* TCBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TCBrowser.storyboard; sourceTree = "<group>"; };
 		05B971E21804C02100BCD658 /* TCBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBrowserViewController.h; sourceTree = "<group>"; };
 		05B971E31804C02100BCD658 /* TCBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBrowserViewController.m; sourceTree = "<group>"; };
-		05B971E71804C42D00BCD658 /* Bristle Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Bristle Grass.jpg"; path = "../../../../../Library/Desktop Pictures/Bristle Grass.jpg"; sourceTree = "<group>"; };
+		05B971E71804C42D00BCD658 /* Bristle Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Bristle Grass.jpg"; path = "/Library/Desktop Pictures/Bristle Grass.jpg"; sourceTree = "<absolute>"; };
 		05E8BB6618060425005E8899 /* TCWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWindowManager.h; sourceTree = "<group>"; };
 		05E8BB6718060425005E8899 /* TCWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWindowManager.m; sourceTree = "<group>"; };
 		05E8BB6D1806C462005E8899 /* TCDVDirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDVDirectoryWatcher.h; sourceTree = "<group>"; };
@@ -89,6 +91,9 @@
 		05E8BB7C1806C462005E8899 /* TCTextViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTextViewerController.m; sourceTree = "<group>"; };
 		05E8BB7D1806C462005E8899 /* TCVideoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCVideoViewerController.h; sourceTree = "<group>"; };
 		05E8BB7E1806C462005E8899 /* TCVideoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCVideoViewerController.m; sourceTree = "<group>"; };
+		05E8BB8B1806C56E005E8899 /* TCDesktopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDesktopViewController.h; sourceTree = "<group>"; };
+		05E8BB8C1806C56E005E8899 /* TCDesktopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDesktopViewController.m; sourceTree = "<group>"; };
+		05E8BB901806C70A005E8899 /* TCDesktopIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDesktopIconCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,7 +158,7 @@
 				05B971BE1804BE3100BCD658 /* TCAppDelegate.m */,
 				05E8BB6918060E2E005E8899 /* Window management */,
 				05E8BB6A18060E35005E8899 /* App contents */,
-				05B971E71804C42D00BCD658 /* Bristle Grass.jpg */,
+				05E8BB8A1806C545005E8899 /* Desktop */,
 				05B971C01804BE3100BCD658 /* Images.xcassets */,
 				05B971B51804BE3100BCD658 /* Supporting Files */,
 			);
@@ -251,6 +256,17 @@
 			path = Viewers;
 			sourceTree = "<group>";
 		};
+		05E8BB8A1806C545005E8899 /* Desktop */ = {
+			isa = PBXGroup;
+			children = (
+				05B971E71804C42D00BCD658 /* Bristle Grass.jpg */,
+				05E8BB8B1806C56E005E8899 /* TCDesktopViewController.h */,
+				05E8BB8C1806C56E005E8899 /* TCDesktopViewController.m */,
+				05E8BB901806C70A005E8899 /* TCDesktopIconCell.xib */,
+			);
+			name = Desktop;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -331,6 +347,7 @@
 				05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */,
 				05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */,
 				05E8BB831806C462005E8899 /* GenericImageIcon.png in Resources */,
+				05E8BB911806C70A005E8899 /* TCDesktopIconCell.xib in Resources */,
 				05E8BB811806C462005E8899 /* GenericDocumentIcon.png in Resources */,
 				05E8BB841806C462005E8899 /* GenericMovieIcon.png in Resources */,
 				05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */,
@@ -362,6 +379,7 @@
 				05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */,
 				05E8BB7F1806C462005E8899 /* TCDVDirectoryWatcher.m in Sources */,
 				05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */,
+				05E8BB8E1806C56E005E8899 /* TCDesktopViewController.m in Sources */,
 				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
 				05E8BB891806C462005E8899 /* TCVideoViewerController.m in Sources */,
 				05E8BB801806C462005E8899 /* TCDocumentViewerController.m in Sources */,
