@@ -14,6 +14,7 @@
 {
     NSMutableArray *_windows;
     UIDynamicAnimator *_animator;
+    int _tabIndex;
 }
 @end
 
@@ -65,6 +66,8 @@
     } completion:nil];
 }
 
+#pragma mark window delegate
+
 - (void)windowRequestsClose:(TCWindow *)w
 {
     [w.rootViewController willMoveToParentViewController:nil];
@@ -90,4 +93,33 @@
 {
     return _animator;
 }
+
+- (IBAction)cycleWindows:(id)sender
+{
+    _tabIndex = (_tabIndex - 1) % _windows.count;
+    [self windowRequestsForeground:_windows[_tabIndex]];
+}
+
+- (IBAction)cycleWindowsReverse:(id)sender
+{
+    _tabIndex = (_tabIndex + 1) % _windows.count;
+    [self windowRequestsForeground:_windows[_tabIndex]];
+}
+
+#pragma mark Responder
+
+
+- (BOOL)canBecomeFirstResponder;
+{
+    return YES;
+}
+
+- (NSArray*)keyCommands
+{
+    return @[
+        [UIKeyCommand keyCommandWithInput:@"\t" modifierFlags:UIKeyModifierCommand action:@selector(cycleWindows:)],
+        [UIKeyCommand keyCommandWithInput:@"\t" modifierFlags:UIKeyModifierCommand|UIKeyModifierShift action:@selector(cycleWindowsReverse:)],
+    ];
+}
+
 @end

@@ -6,18 +6,18 @@
 
 /*
     yess:
+    Maximize
     State restoration
     Window titles
     Windows that can't be out of bounds
     Tabs
-    Maximize
     Minimize to tab along bottom
     Cycle windows/list of windows/WSO
     Text editor widget
     File browser
     Navigation controller as root of every window
     nicer window widget icons
-    Keyboard shortcuts/navigation (switch windows, close, min/max, ...)
+    Keyboard shortcuts/navigation (switch windows √, close √, min/max, ...)
  
     eh:
     Exposé
