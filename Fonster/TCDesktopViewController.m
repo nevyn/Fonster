@@ -19,6 +19,7 @@
 {
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    layout.itemSize = CGSizeMake(100, 125);
     if(!(self = [super initWithCollectionViewLayout:layout]))
         return nil;
     
@@ -39,6 +40,8 @@
     
     UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"TCDesktopIconCell" forIndexPath:indexPath];
     UIImageView *image = (id)[cell viewWithTag:1];
+    image.layer.cornerRadius = 11;
+    image.layer.masksToBounds = YES;
     UILabel *label = (id)[cell viewWithTag:2];
     
     image.image = desktopIcon.icon;

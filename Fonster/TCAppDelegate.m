@@ -2,6 +2,7 @@
 #import "TCWindowManager.h"
 #import "TCWindow.h"
 #import "TCDesktopViewController.h"
+#import "TCDirectoryViewController.h"
 
 /*
     yess:
@@ -28,6 +29,9 @@
     drag and drop
 */
 
+@interface TCAppDelegate () <TCDirectoryViewerControllerDelegate>
+@end
+
 @implementation TCAppDelegate
 {
     TCWindowManager *_wm;
@@ -42,7 +46,9 @@
     self.window.rootViewController = _wm;
     [self.window makeKeyAndVisible];
     
-    [_wm.desktop addIcon:nil title:@"Safari" target:self action:@selector(newBrowser)];
+    [_wm.desktop addIcon:[UIImage imageNamed:@"GenericDeviceIcon"] title:[NSString stringWithFormat:@"My %@", [[UIDevice currentDevice] localizedModel]] target:self action:@selector(newRootFinder)];
+    [_wm.desktop addIcon:[UIImage imageNamed:@"GenericFolderIcon"] title:@"Documents" target:self action:@selector(newDocumentsFinder)];
+    [_wm.desktop addIcon:[UIImage imageWithContentsOfFile:@"/Applications/MobileSafari.app/icon@2x~ipad.png"] title:@"Safari" target:self action:@selector(newBrowser)];
     
     return YES;
 }
@@ -55,5 +61,36 @@
         rootViewController:[storyboard instantiateInitialViewController]
     ];
     [_wm showWindow:w];
+}
+
+- (void)showFinderForPath:(NSURL*)path
+{
+    TCDirectoryViewController *dir = [[TCDirectoryViewController alloc] initWithURL:path error:NULL];
+    dir.delegate = self;
+    TCWindow *w = [[TCWindow alloc]
+        initWithFrame:CGRectMake(50, 50, 300, 400)
+        rootViewController:dir
+    ];
+    [_wm showWindow:w];
+}
+
+- (IBAction)newRootFinder
+{
+    [self showFinderForPath:[NSURL fileURLWithPath:@"/"]];
+}
+
+- (IBAction)newDocumentsFinder
+{
+    [self showFinderForPath:[NSURL fileURLWithPath:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]]];
+}
+
+- (BOOL)directoryViewer:(TCDirectoryViewController*)vc shouldPresentContentViewController:(TCDocumentViewerController*)document
+{
+    TCWindow *w = [[TCWindow alloc]
+        initWithFrame:CGRectMake(50, 50, 300, 400)
+        rootViewController:document
+    ];
+    [_wm showWindow:w];
+    return NO;
 }
 @end
