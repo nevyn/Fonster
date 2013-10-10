@@ -18,6 +18,7 @@
     Navigation controller as root of every window
     nicer window widget icons
     Keyboard shortcuts/navigation (switch windows √, close √, min/max, ...)
+    Swipe in from the side to switch between windows
  
     eh:
     Exposé

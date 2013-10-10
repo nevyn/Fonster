@@ -100,6 +100,7 @@ static CGRect gLastFrame;
 
 - (void)move:(UIPanGestureRecognizer*)grec
 {
+    UIDynamicAnimator *animator = [self.delegate animatorForWindow:self];
     
     if(grec.state == UIGestureRecognizerStateBegan) {
         [self.delegate windowRequestsForeground:self];
@@ -108,11 +109,11 @@ static CGRect gLastFrame;
         _movementSpring = [[UIAttachmentBehavior alloc] initWithItem:self attachedToAnchor:r.origin];
         _movementSpring.length = 0;
         _movementSpring.damping = 1;
-        [[self.delegate animatorForWindow:self] addBehavior:_movementSpring];
+        [animator addBehavior:_movementSpring];
         if(!_physics) {
             _physics = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
             _physics.resistance = 20;
-            [[self.delegate animatorForWindow:self] addBehavior:_physics];
+            [animator addBehavior:_physics];
         }
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGRect r = self.frame;
@@ -124,12 +125,16 @@ static CGRect gLastFrame;
         gLastFrame = r;
         r = CGRectOffset(r, r.size.width/2, r.size.height/2);
         _movementSpring.anchorPoint = r.origin;
+        // Physics is buggy; if it's disabled, set position manually.
+        if(!animator) {
+            self.frame = gLastFrame;
+        }
     } else if(grec.state == UIGestureRecognizerStateEnded || grec.state == UIGestureRecognizerStateCancelled) {
         UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[self] mode:UIPushBehaviorModeInstantaneous];
         push.magnitude = 1;
         push.pushDirection = CGVectorMake([grec velocityInView:self].x*0.2, [grec velocityInView:self].y*0.2);
-        [[self.delegate animatorForWindow:self] addBehavior:push];
-        [[self.delegate animatorForWindow:self] removeBehavior:_movementSpring];
+        [animator addBehavior:push];
+        [animator removeBehavior:_movementSpring];
         _movementSpring = nil;
     }
 }

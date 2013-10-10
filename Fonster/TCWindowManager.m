@@ -100,6 +100,7 @@
 
 - (UIDynamicAnimator*)animatorForWindow:(TCWindow*)window
 {
+    return nil;
     return _animator;
 }
 
