@@ -24,6 +24,17 @@
 		05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971E31804C02100BCD658 /* TCBrowserViewController.m */; };
 		05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E71804C42D00BCD658 /* Bristle Grass.jpg */; };
 		05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6718060425005E8899 /* TCWindowManager.m */; };
+		05E8BB7F1806C462005E8899 /* TCDVDirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6E1806C462005E8899 /* TCDVDirectoryWatcher.m */; };
+		05E8BB801806C462005E8899 /* TCDocumentViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB701806C462005E8899 /* TCDocumentViewerController.m */; };
+		05E8BB811806C462005E8899 /* GenericDocumentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB721806C462005E8899 /* GenericDocumentIcon.png */; };
+		05E8BB821806C462005E8899 /* GenericFolderIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB731806C462005E8899 /* GenericFolderIcon.png */; };
+		05E8BB831806C462005E8899 /* GenericImageIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB741806C462005E8899 /* GenericImageIcon.png */; };
+		05E8BB841806C462005E8899 /* GenericMovieIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB751806C462005E8899 /* GenericMovieIcon.png */; };
+		05E8BB851806C462005E8899 /* GenericTextIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB761806C462005E8899 /* GenericTextIcon.png */; };
+		05E8BB861806C462005E8899 /* TCDirectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB781806C462005E8899 /* TCDirectoryViewController.m */; };
+		05E8BB871806C462005E8899 /* TCImageViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB7A1806C462005E8899 /* TCImageViewerController.m */; };
+		05E8BB881806C462005E8899 /* TCTextViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB7C1806C462005E8899 /* TCTextViewerController.m */; };
+		05E8BB891806C462005E8899 /* TCVideoViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB7E1806C462005E8899 /* TCVideoViewerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +72,23 @@
 		05B971E71804C42D00BCD658 /* Bristle Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Bristle Grass.jpg"; path = "../../../../../Library/Desktop Pictures/Bristle Grass.jpg"; sourceTree = "<group>"; };
 		05E8BB6618060425005E8899 /* TCWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWindowManager.h; sourceTree = "<group>"; };
 		05E8BB6718060425005E8899 /* TCWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWindowManager.m; sourceTree = "<group>"; };
+		05E8BB6D1806C462005E8899 /* TCDVDirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDVDirectoryWatcher.h; sourceTree = "<group>"; };
+		05E8BB6E1806C462005E8899 /* TCDVDirectoryWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDVDirectoryWatcher.m; sourceTree = "<group>"; };
+		05E8BB6F1806C462005E8899 /* TCDocumentViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDocumentViewerController.h; sourceTree = "<group>"; };
+		05E8BB701806C462005E8899 /* TCDocumentViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDocumentViewerController.m; sourceTree = "<group>"; };
+		05E8BB721806C462005E8899 /* GenericDocumentIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericDocumentIcon.png; sourceTree = "<group>"; };
+		05E8BB731806C462005E8899 /* GenericFolderIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericFolderIcon.png; sourceTree = "<group>"; };
+		05E8BB741806C462005E8899 /* GenericImageIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericImageIcon.png; sourceTree = "<group>"; };
+		05E8BB751806C462005E8899 /* GenericMovieIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericMovieIcon.png; sourceTree = "<group>"; };
+		05E8BB761806C462005E8899 /* GenericTextIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericTextIcon.png; sourceTree = "<group>"; };
+		05E8BB771806C462005E8899 /* TCDirectoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDirectoryViewController.h; sourceTree = "<group>"; };
+		05E8BB781806C462005E8899 /* TCDirectoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDirectoryViewController.m; sourceTree = "<group>"; };
+		05E8BB791806C462005E8899 /* TCImageViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCImageViewerController.h; sourceTree = "<group>"; };
+		05E8BB7A1806C462005E8899 /* TCImageViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCImageViewerController.m; sourceTree = "<group>"; };
+		05E8BB7B1806C462005E8899 /* TCTextViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTextViewerController.h; sourceTree = "<group>"; };
+		05E8BB7C1806C462005E8899 /* TCTextViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTextViewerController.m; sourceTree = "<group>"; };
+		05E8BB7D1806C462005E8899 /* TCVideoViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCVideoViewerController.h; sourceTree = "<group>"; };
+		05E8BB7E1806C462005E8899 /* TCVideoViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCVideoViewerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +137,7 @@
 		05B971AD1804BE3100BCD658 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05E8BB6B1806C462005E8899 /* TCFileViewer */,
 				05B971AE1804BE3100BCD658 /* Foundation.framework */,
 				05B971B01804BE3100BCD658 /* CoreGraphics.framework */,
 				05B971B21804BE3100BCD658 /* UIKit.framework */,
@@ -179,6 +208,47 @@
 				05B971E01804BF0300BCD658 /* TCBrowser.storyboard */,
 			);
 			name = "App contents";
+			sourceTree = "<group>";
+		};
+		05E8BB6B1806C462005E8899 /* TCFileViewer */ = {
+			isa = PBXGroup;
+			children = (
+				05E8BB6C1806C462005E8899 /* Extras */,
+				05E8BB6F1806C462005E8899 /* TCDocumentViewerController.h */,
+				05E8BB701806C462005E8899 /* TCDocumentViewerController.m */,
+				05E8BB711806C462005E8899 /* Viewers */,
+			);
+			name = TCFileViewer;
+			path = Libraries/TCFileViewer/TCFileViewer;
+			sourceTree = "<group>";
+		};
+		05E8BB6C1806C462005E8899 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				05E8BB6D1806C462005E8899 /* TCDVDirectoryWatcher.h */,
+				05E8BB6E1806C462005E8899 /* TCDVDirectoryWatcher.m */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		05E8BB711806C462005E8899 /* Viewers */ = {
+			isa = PBXGroup;
+			children = (
+				05E8BB721806C462005E8899 /* GenericDocumentIcon.png */,
+				05E8BB731806C462005E8899 /* GenericFolderIcon.png */,
+				05E8BB741806C462005E8899 /* GenericImageIcon.png */,
+				05E8BB751806C462005E8899 /* GenericMovieIcon.png */,
+				05E8BB761806C462005E8899 /* GenericTextIcon.png */,
+				05E8BB771806C462005E8899 /* TCDirectoryViewController.h */,
+				05E8BB781806C462005E8899 /* TCDirectoryViewController.m */,
+				05E8BB791806C462005E8899 /* TCImageViewerController.h */,
+				05E8BB7A1806C462005E8899 /* TCImageViewerController.m */,
+				05E8BB7B1806C462005E8899 /* TCTextViewerController.h */,
+				05E8BB7C1806C462005E8899 /* TCTextViewerController.m */,
+				05E8BB7D1806C462005E8899 /* TCVideoViewerController.h */,
+				05E8BB7E1806C462005E8899 /* TCVideoViewerController.m */,
+			);
+			path = Viewers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,9 +327,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E8BB821806C462005E8899 /* GenericFolderIcon.png in Resources */,
 				05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */,
 				05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */,
+				05E8BB831806C462005E8899 /* GenericImageIcon.png in Resources */,
+				05E8BB811806C462005E8899 /* GenericDocumentIcon.png in Resources */,
+				05E8BB841806C462005E8899 /* GenericMovieIcon.png in Resources */,
 				05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */,
+				05E8BB851806C462005E8899 /* GenericTextIcon.png in Resources */,
 				05B971C11804BE3100BCD658 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,10 +355,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B971BB1804BE3100BCD658 /* main.m in Sources */,
+				05E8BB861806C462005E8899 /* TCDirectoryViewController.m in Sources */,
 				05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */,
+				05E8BB881806C462005E8899 /* TCTextViewerController.m in Sources */,
+				05E8BB871806C462005E8899 /* TCImageViewerController.m in Sources */,
 				05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */,
+				05E8BB7F1806C462005E8899 /* TCDVDirectoryWatcher.m in Sources */,
 				05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */,
 				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
+				05E8BB891806C462005E8899 /* TCVideoViewerController.m in Sources */,
+				05E8BB801806C462005E8899 /* TCDocumentViewerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
