@@ -10,7 +10,7 @@
 #import "TCWindow.h"
 #import "TCDesktopViewController.h"
 
-@interface TCWindowManager () <TCWindowDelegate>
+@interface TCWindowManager () <TCWindowDelegate, UIDynamicAnimatorDelegate>
 {
     NSMutableArray *_windows;
     UIDynamicAnimator *_animator;
@@ -45,6 +45,7 @@
     [_desktop didMoveToParentViewController:self];
     
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:root];
+    _animator.delegate = self;
     
     self.view = root;
 }
@@ -64,6 +65,14 @@
         [w.rootViewController didMoveToParentViewController:self];
         [w becomeFirstResponder];
     } completion:nil];
+}
+
+- (void)dynamicAnimatorDidPause:(UIDynamicAnimator*)animator;
+{
+    for(UIDynamicBehavior *behavior in animator.behaviors.copy) {
+        if([behavior isKindOfClass:[UIPushBehavior class]])
+            [animator removeBehavior:behavior];
+    }
 }
 
 #pragma mark window delegate
@@ -94,18 +103,6 @@
     return _animator;
 }
 
-- (IBAction)cycleWindows:(id)sender
-{
-    _tabIndex = (_tabIndex - 1) % _windows.count;
-    [self windowRequestsForeground:_windows[_tabIndex]];
-}
-
-- (IBAction)cycleWindowsReverse:(id)sender
-{
-    _tabIndex = (_tabIndex + 1) % _windows.count;
-    [self windowRequestsForeground:_windows[_tabIndex]];
-}
-
 #pragma mark Responder
 
 
@@ -121,5 +118,18 @@
         [UIKeyCommand keyCommandWithInput:@"\t" modifierFlags:UIKeyModifierCommand|UIKeyModifierShift action:@selector(cycleWindowsReverse:)],
     ];
 }
+
+- (IBAction)cycleWindows:(id)sender
+{
+    _tabIndex = (_tabIndex - 1) % _windows.count;
+    [self windowRequestsForeground:_windows[_tabIndex]];
+}
+
+- (IBAction)cycleWindowsReverse:(id)sender
+{
+    _tabIndex = (_tabIndex + 1) % _windows.count;
+    [self windowRequestsForeground:_windows[_tabIndex]];
+}
+
 
 @end

@@ -10,13 +10,14 @@
 
 static CGRect gLastFrame;
 
-@interface TCWindow ()
+@interface TCWindow () <UIGestureRecognizerDelegate>
 {
     UIToolbar *_toolbar;
     UIView *_background;
-    UIView *_resizeWidget;
+    UIButton *_resizeWidget;
     UIButton *_closeWidget;
     CGRect _startFrame;
+    CGRect _nonMaximizedFrame;
     UIAttachmentBehavior *_movementSpring;
     UIDynamicItemBehavior *_physics;
 }
@@ -39,8 +40,9 @@ static CGRect gLastFrame;
     _background.frame = CGRectInset(_background.frame, -2, -2);
     _background.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.05];
     _background.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    _resizeWidget = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+    _resizeWidget = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
     _resizeWidget.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.1];
+    [_resizeWidget addTarget:self action:@selector(maximize:) forControlEvents:UIControlEventTouchUpInside];
     _closeWidget = [UIButton buttonWithType:UIButtonTypeCustom];
     _closeWidget.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
     [_closeWidget addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
@@ -51,9 +53,11 @@ static CGRect gLastFrame;
     [self addSubview:_rootViewController.view];
     
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
+    move.delegate = self;
     [_toolbar addGestureRecognizer:move];
     
     UIPanGestureRecognizer *resize = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(resize:)];
+    resize.delegate = self;
     [_resizeWidget addGestureRecognizer:resize];
     
     return self;
@@ -87,6 +91,11 @@ static CGRect gLastFrame;
     return @[
         [UIKeyCommand keyCommandWithInput:@"w" modifierFlags:UIKeyModifierCommand action:@selector(close:)],
     ];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return ![self isMaximized];
 }
 
 - (void)move:(UIPanGestureRecognizer*)grec
@@ -146,6 +155,29 @@ static CGRect gLastFrame;
 {
     [[self.delegate animatorForWindow:self] removeBehavior:_physics];
     [self.delegate windowRequestsClose:self];
+}
+
+- (BOOL)isMaximized
+{
+    return self.autoresizingMask == (UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth);
+}
+
+- (IBAction)maximize:(id)sender
+{
+    int fullscreenMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    [[self.delegate animatorForWindow:self] removeBehavior:_physics];
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.65 initialSpringVelocity:20 options:0 animations:^{
+        if(self.autoresizingMask != fullscreenMask) {
+            _nonMaximizedFrame = self.frame;
+            self.frame = self.superview.bounds;
+            self.autoresizingMask = fullscreenMask;
+        } else {
+            self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin|UIViewAutoresizingFlexibleRightMargin;
+            self.frame = _nonMaximizedFrame;
+        }
+    } completion:^(BOOL finished) {
+        [[self.delegate animatorForWindow:self] addBehavior:_physics];
+    }];
 }
 
 @end

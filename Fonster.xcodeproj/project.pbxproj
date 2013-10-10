@@ -203,10 +203,10 @@
 		05E8BB6918060E2E005E8899 /* Window management */ = {
 			isa = PBXGroup;
 			children = (
-				05B971DD1804BE5400BCD658 /* TCWindow.h */,
-				05B971DE1804BE5400BCD658 /* TCWindow.m */,
 				05E8BB6618060425005E8899 /* TCWindowManager.h */,
 				05E8BB6718060425005E8899 /* TCWindowManager.m */,
+				05B971DD1804BE5400BCD658 /* TCWindow.h */,
+				05B971DE1804BE5400BCD658 /* TCWindow.m */,
 			);
 			name = "Window management";
 			sourceTree = "<group>";
