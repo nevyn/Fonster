@@ -77,6 +77,18 @@ static CGRect gLastFrame;
     _closeWidget.frame = closeF;
 }
 
+- (BOOL)canBecomeFirstResponder;
+{
+    return YES;
+}
+
+- (NSArray*)keyCommands
+{
+    return @[
+        [UIKeyCommand keyCommandWithInput:@"w" modifierFlags:UIKeyModifierCommand action:@selector(close:)],
+    ];
+}
+
 - (void)move:(UIPanGestureRecognizer*)grec
 {
     
@@ -86,6 +98,7 @@ static CGRect gLastFrame;
         r = CGRectOffset(r, r.size.width/2, r.size.height/2);
         _movementSpring = [[UIAttachmentBehavior alloc] initWithItem:self attachedToAnchor:r.origin];
         _movementSpring.length = 0;
+        _movementSpring.damping = 1;
         [[self.delegate animatorForWindow:self] addBehavior:_movementSpring];
         if(!_physics) {
             _physics = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];

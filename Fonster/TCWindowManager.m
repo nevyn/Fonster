@@ -61,6 +61,7 @@
         w.transform = CGAffineTransformIdentity;
         w.alpha = 1;
         [w.rootViewController didMoveToParentViewController:self];
+        [w becomeFirstResponder];
     } completion:nil];
 }
 
@@ -70,6 +71,8 @@
     [UIView animateWithDuration:0.65 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
         w.transform = CGAffineTransformMakeScale(0.7, 0.7);
         w.alpha = 0;
+        if(_windows.count > 1)
+            [self windowRequestsForeground:_windows[_windows.count-2]];
     } completion:^(BOOL finished) {
         [_windows removeObject:w];
         [w.rootViewController removeFromParentViewController];
@@ -79,6 +82,8 @@
 - (void)windowRequestsForeground:(TCWindow *)window
 {
     [self.view addSubview:window];
+    [_windows removeObject:window]; [_windows addObject:window];
+    [window becomeFirstResponder];
 }
 
 - (UIDynamicAnimator*)animatorForWindow:(TCWindow*)window
