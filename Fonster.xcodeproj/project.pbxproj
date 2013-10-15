@@ -22,7 +22,6 @@
 		05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971DE1804BE5400BCD658 /* TCWindow.m */; };
 		05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E01804BF0300BCD658 /* TCBrowser.storyboard */; };
 		05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971E31804C02100BCD658 /* TCBrowserViewController.m */; };
-		05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E71804C42D00BCD658 /* Bristle Grass.jpg */; };
 		05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6718060425005E8899 /* TCWindowManager.m */; };
 		05E8BB7F1806C462005E8899 /* TCDVDirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6E1806C462005E8899 /* TCDVDirectoryWatcher.m */; };
 		05E8BB801806C462005E8899 /* TCDocumentViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB701806C462005E8899 /* TCDocumentViewerController.m */; };
@@ -40,6 +39,8 @@
 		05E8BB981806D652005E8899 /* GenericDeviceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB961806D652005E8899 /* GenericDeviceIcon.png */; };
 		05E8BB991806D652005E8899 /* GenericDeviceIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB971806D652005E8899 /* GenericDeviceIcon~ipad.png */; };
 		05E8BB9B180DB23F005E8899 /* HomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9A180DB23F005E8899 /* HomeIcon.png */; };
+		05E8BB9D180DB7E7005E8899 /* TextEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9C180DB7E7005E8899 /* TextEdit.png */; };
+		05E8BB9F180DB88B005E8899 /* Desktop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9E180DB88B005E8899 /* Desktop.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +75,6 @@
 		05B971E01804BF0300BCD658 /* TCBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TCBrowser.storyboard; sourceTree = "<group>"; };
 		05B971E21804C02100BCD658 /* TCBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBrowserViewController.h; sourceTree = "<group>"; };
 		05B971E31804C02100BCD658 /* TCBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBrowserViewController.m; sourceTree = "<group>"; };
-		05B971E71804C42D00BCD658 /* Bristle Grass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Bristle Grass.jpg"; path = "/Library/Desktop Pictures/Bristle Grass.jpg"; sourceTree = "<absolute>"; };
 		05E8BB6618060425005E8899 /* TCWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWindowManager.h; sourceTree = "<group>"; };
 		05E8BB6718060425005E8899 /* TCWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWindowManager.m; sourceTree = "<group>"; };
 		05E8BB6D1806C462005E8899 /* TCDVDirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDVDirectoryWatcher.h; sourceTree = "<group>"; };
@@ -100,6 +100,8 @@
 		05E8BB961806D652005E8899 /* GenericDeviceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericDeviceIcon.png; sourceTree = "<group>"; };
 		05E8BB971806D652005E8899 /* GenericDeviceIcon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GenericDeviceIcon~ipad.png"; sourceTree = "<group>"; };
 		05E8BB9A180DB23F005E8899 /* HomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeIcon.png; sourceTree = "<group>"; };
+		05E8BB9C180DB7E7005E8899 /* TextEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextEdit.png; sourceTree = "<group>"; };
+		05E8BB9E180DB88B005E8899 /* Desktop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Desktop.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				05E8BB961806D652005E8899 /* GenericDeviceIcon.png */,
 				05E8BB971806D652005E8899 /* GenericDeviceIcon~ipad.png */,
 				05E8BB9A180DB23F005E8899 /* HomeIcon.png */,
+				05E8BB9C180DB7E7005E8899 /* TextEdit.png */,
 				05E8BB6918060E2E005E8899 /* Window management */,
 				05E8BB6A18060E35005E8899 /* App contents */,
 				05E8BB8A1806C545005E8899 /* Desktop */,
@@ -268,7 +271,7 @@
 		05E8BB8A1806C545005E8899 /* Desktop */ = {
 			isa = PBXGroup;
 			children = (
-				05B971E71804C42D00BCD658 /* Bristle Grass.jpg */,
+				05E8BB9E180DB88B005E8899 /* Desktop.jpg */,
 				05E8BB8B1806C56E005E8899 /* TCDesktopViewController.h */,
 				05E8BB8C1806C56E005E8899 /* TCDesktopViewController.m */,
 				05E8BB901806C70A005E8899 /* TCDesktopIconCell.xib */,
@@ -352,16 +355,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E8BB9F180DB88B005E8899 /* Desktop.jpg in Resources */,
 				05E8BB9B180DB23F005E8899 /* HomeIcon.png in Resources */,
 				05E8BB821806C462005E8899 /* GenericFolderIcon.png in Resources */,
 				05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */,
 				05E8BB981806D652005E8899 /* GenericDeviceIcon.png in Resources */,
-				05B971E81804C42D00BCD658 /* Bristle Grass.jpg in Resources */,
 				05E8BB831806C462005E8899 /* GenericImageIcon.png in Resources */,
 				05E8BB911806C70A005E8899 /* TCDesktopIconCell.xib in Resources */,
 				05E8BB811806C462005E8899 /* GenericDocumentIcon.png in Resources */,
 				05E8BB991806D652005E8899 /* GenericDeviceIcon~ipad.png in Resources */,
 				05E8BB841806C462005E8899 /* GenericMovieIcon.png in Resources */,
+				05E8BB9D180DB7E7005E8899 /* TextEdit.png in Resources */,
 				05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */,
 				05E8BB851806C462005E8899 /* GenericTextIcon.png in Resources */,
 				05B971C11804BE3100BCD658 /* Images.xcassets in Resources */,

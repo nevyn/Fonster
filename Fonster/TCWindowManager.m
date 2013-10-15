@@ -31,7 +31,7 @@
 - (void)loadView
 {
     UIView *root = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Bristle Grass.jpg"]];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Desktop.jpg"]];
     bg.frame = root.bounds;
     bg.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
     bg.contentMode = UIViewContentModeScaleAspectFill;
