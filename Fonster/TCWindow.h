@@ -11,6 +11,7 @@
 
 @interface TCWindow : UIView
 - (id)initWithRootViewController:(UIViewController*)rootViewController;
+@property(readonly) UINavigationController *navigationController;
 @property(readonly) UIViewController *rootViewController;
 @property(weak) id<TCWindowDelegate> delegate;
 - (IBAction)close:(id)sender;

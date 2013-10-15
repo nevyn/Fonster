@@ -12,7 +12,6 @@ static CGRect gLastFrame;
 
 @interface TCWindow () <UIGestureRecognizerDelegate>
 {
-    UIToolbar *_toolbar;
     UIView *_background;
     UIButton *_resizeWidget;
     UIButton *_closeWidget;
@@ -33,10 +32,10 @@ static CGRect gLastFrame;
     if(!(self = [super initWithFrame:frame]))
         return nil;
     
+    _navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     _rootViewController = rootViewController;
     
     self.backgroundColor = [UIColor clearColor];
-    _toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 30)];
     _background = [[UIView alloc] initWithFrame:self.bounds];
     _background.frame = CGRectInset(_background.frame, -2, -2);
     _background.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.05];
@@ -48,33 +47,30 @@ static CGRect gLastFrame;
     _closeWidget.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.1];
     [_closeWidget addTarget:self action:@selector(close:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_background];
-    [self addSubview:_toolbar];
+    [self addSubview:_navigationController.view];
     [self addSubview:_resizeWidget];
     [self addSubview:_closeWidget];
-    [self addSubview:_rootViewController.view];
     
     UIPanGestureRecognizer *move = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(move:)];
     move.delegate = self;
-    [_toolbar addGestureRecognizer:move];
+    [self.navigationController.navigationBar addGestureRecognizer:move];
     
     UIPanGestureRecognizer *resize = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(resize:)];
     resize.delegate = self;
     [_resizeWidget addGestureRecognizer:resize];
-    
+
     return self;
 }
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    CGRect toolbarF, contentF;
-    CGRectDivide(self.bounds, &toolbarF, &contentF, _toolbar.frame.size.height, CGRectMinYEdge);
-    _toolbar.frame = toolbarF;
-    self.rootViewController.view.frame = contentF;
+    _navigationController.view.frame = self.bounds;
+    CGRect _;
+    CGRect toolbarF = self.navigationController.navigationBar.bounds;
     
-    CGRect resizeF, _;
+    CGRect resizeF;
     CGRectDivide(toolbarF, &resizeF, &_, _resizeWidget.frame.size.width, CGRectMaxXEdge);
-    resizeF.size.height = _resizeWidget.frame.size.height;
     _resizeWidget.frame = resizeF;
     
     CGRect closeF;

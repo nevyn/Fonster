@@ -54,7 +54,7 @@
 {
     [_windows addObject:w];
     w.delegate = self;
-    [self addChildViewController:w.rootViewController];
+    [self addChildViewController:w.navigationController];
     
     w.alpha = 0;
     w.transform = CGAffineTransformMakeScale(0.7, 0.7);
@@ -62,7 +62,7 @@
     [UIView animateWithDuration:0.45 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
         w.transform = CGAffineTransformIdentity;
         w.alpha = 1;
-        [w.rootViewController didMoveToParentViewController:self];
+        [w.navigationController didMoveToParentViewController:self];
         [w becomeFirstResponder];
     } completion:nil];
 }
@@ -79,7 +79,7 @@
 
 - (void)windowRequestsClose:(TCWindow *)w
 {
-    [w.rootViewController willMoveToParentViewController:nil];
+    [w.navigationController willMoveToParentViewController:nil];
     [UIView animateWithDuration:0.65 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
         w.transform = CGAffineTransformMakeScale(0.7, 0.7);
         w.alpha = 0;
@@ -87,7 +87,7 @@
             [self windowRequestsForeground:_windows[_windows.count-2]];
     } completion:^(BOOL finished) {
         [_windows removeObject:w];
-        [w.rootViewController removeFromParentViewController];
+        [w.navigationController removeFromParentViewController];
     }]; 
 }
 
