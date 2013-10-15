@@ -21,36 +21,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3l-1n-f6t">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="qpm-hO-ecZ"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem style="plain" id="njY-MW-YT4">
-                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter an address" minimumFontSize="17" id="QJV-f9-2kK">
-                                            <rect key="frame" x="16" y="7" width="187" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
-                                            <connections>
-                                                <outlet property="delegate" destination="PKu-tU-7sH" id="kSl-AJ-eI2"/>
-                                            </connections>
-                                        </textField>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AMs-51-gol" firstAttribute="top" secondItem="LNX-4H-DcO" secondAttribute="top" id="ALs-FE-GXy"/>
-                            <constraint firstAttribute="trailing" secondItem="AMs-51-gol" secondAttribute="trailing" id="ExW-ba-Paa"/>
-                            <constraint firstItem="l3l-1n-f6t" firstAttribute="top" secondItem="LNX-4H-DcO" secondAttribute="top" id="Kgg-CT-4g3"/>
-                            <constraint firstItem="AMs-51-gol" firstAttribute="leading" secondItem="LNX-4H-DcO" secondAttribute="leading" id="Ljz-nF-4SF"/>
-                            <constraint firstItem="l3l-1n-f6t" firstAttribute="leading" secondItem="LNX-4H-DcO" secondAttribute="leading" id="RFg-oU-ZjZ"/>
-                            <constraint firstAttribute="trailing" secondItem="l3l-1n-f6t" secondAttribute="trailing" id="UsA-7o-Fhr"/>
-                            <constraint firstItem="Wgx-yv-Ey3" firstAttribute="top" secondItem="AMs-51-gol" secondAttribute="bottom" id="awY-66-BZ3"/>
+                            <constraint firstItem="AMs-51-gol" firstAttribute="leading" secondItem="LNX-4H-DcO" secondAttribute="leading" id="0l5-1x-Udx"/>
+                            <constraint firstItem="AMs-51-gol" firstAttribute="top" secondItem="LNX-4H-DcO" secondAttribute="top" id="Xiy-8k-vZf"/>
+                            <constraint firstAttribute="trailing" secondItem="AMs-51-gol" secondAttribute="trailing" id="blb-zz-vO1"/>
+                            <constraint firstItem="Wgx-yv-Ey3" firstAttribute="top" secondItem="AMs-51-gol" secondAttribute="bottom" id="exa-FQ-B0k"/>
                         </constraints>
                     </view>
                     <connections>

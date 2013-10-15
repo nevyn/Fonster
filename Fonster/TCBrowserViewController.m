@@ -8,15 +8,20 @@
 
 #import "TCBrowserViewController.h"
 
-@interface TCBrowserViewController ()
+@interface TCBrowserViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-
 @end
 
 @implementation TCBrowserViewController
 - (void)viewDidLoad
 {
-    self.webView.scrollView.contentInset = UIEdgeInsetsMake(44, 0, 0, 0);
+    UITextField *f = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 150, 28)];
+    f.borderStyle = UITextBorderStyleRoundedRect;
+    f.autocorrectionType = UITextAutocorrectionTypeNo;
+    f.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    f.keyboardType = UIKeyboardTypeURL;
+    f.delegate = self;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:f];
 }
 
 - (IBAction)navigateTo:(UITextField *)sender {
