@@ -7,19 +7,16 @@
 
 /*
     yess:
-    Maximize
     State restoration
-    Window titles
     Windows that can't be out of bounds
     Tabs
     Minimize to tab along bottom
     Cycle windows/list of windows/WSO
-    Text editor widget
     File browser
-    Navigation controller as root of every window
     nicer window widget icons
     Keyboard shortcuts/navigation (switch windows √, close √, min/max, ...)
     Swipe in from the side to switch between windows
+
  
     eh:
     Exposé
@@ -29,6 +26,12 @@
     terminal :P
     pods-based plugin system for apps (like SPFeature)
     drag and drop
+    
+    done:
+    Text editor widget √
+    Maximize √
+    Window titles √
+    Navigation controller as root of every window √
 */
 
 @interface TCAppDelegate () <TCDirectoryViewerControllerDelegate>
@@ -51,7 +54,7 @@
     [_wm.desktop addIcon:[UIImage imageNamed:@"GenericDeviceIcon"] title:[NSString stringWithFormat:@"My %@", [[UIDevice currentDevice] localizedModel]] target:self action:@selector(newRootFinder)];
     [_wm.desktop addIcon:[UIImage imageNamed:@"HomeIcon"] title:@"Me" target:self action:@selector(newDocumentsFinder)];
     [_wm.desktop addIcon:[UIImage imageWithContentsOfFile:@"/Applications/MobileSafari.app/icon@2x~ipad.png"] title:@"Safari" target:self action:@selector(newBrowser)];
-    [_wm.desktop addIcon:[UIImage imageNamed:@"TextEdit"] title:@"New Text Document" target:self action:@selector(newEditor)];
+    [_wm.desktop addIcon:[UIImage imageNamed:@"TextEdit"] title:@"TextEdit" target:self action:@selector(newEditor)];
 
     
     return YES;
