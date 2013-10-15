@@ -39,6 +39,7 @@
 		05E8BB911806C70A005E8899 /* TCDesktopIconCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB901806C70A005E8899 /* TCDesktopIconCell.xib */; };
 		05E8BB981806D652005E8899 /* GenericDeviceIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB961806D652005E8899 /* GenericDeviceIcon.png */; };
 		05E8BB991806D652005E8899 /* GenericDeviceIcon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB971806D652005E8899 /* GenericDeviceIcon~ipad.png */; };
+		05E8BB9B180DB23F005E8899 /* HomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9A180DB23F005E8899 /* HomeIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		05E8BB901806C70A005E8899 /* TCDesktopIconCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TCDesktopIconCell.xib; sourceTree = "<group>"; };
 		05E8BB961806D652005E8899 /* GenericDeviceIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GenericDeviceIcon.png; sourceTree = "<group>"; };
 		05E8BB971806D652005E8899 /* GenericDeviceIcon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "GenericDeviceIcon~ipad.png"; sourceTree = "<group>"; };
+		05E8BB9A180DB23F005E8899 /* HomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				05B971BE1804BE3100BCD658 /* TCAppDelegate.m */,
 				05E8BB961806D652005E8899 /* GenericDeviceIcon.png */,
 				05E8BB971806D652005E8899 /* GenericDeviceIcon~ipad.png */,
+				05E8BB9A180DB23F005E8899 /* HomeIcon.png */,
 				05E8BB6918060E2E005E8899 /* Window management */,
 				05E8BB6A18060E35005E8899 /* App contents */,
 				05E8BB8A1806C545005E8899 /* Desktop */,
@@ -349,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05E8BB9B180DB23F005E8899 /* HomeIcon.png in Resources */,
 				05E8BB821806C462005E8899 /* GenericFolderIcon.png in Resources */,
 				05B971B91804BE3100BCD658 /* InfoPlist.strings in Resources */,
 				05E8BB981806D652005E8899 /* GenericDeviceIcon.png in Resources */,

@@ -48,7 +48,7 @@
     [self.window makeKeyAndVisible];
     
     [_wm.desktop addIcon:[UIImage imageNamed:@"GenericDeviceIcon"] title:[NSString stringWithFormat:@"My %@", [[UIDevice currentDevice] localizedModel]] target:self action:@selector(newRootFinder)];
-    [_wm.desktop addIcon:[UIImage imageNamed:@"GenericFolderIcon"] title:@"Documents" target:self action:@selector(newDocumentsFinder)];
+    [_wm.desktop addIcon:[UIImage imageNamed:@"HomeIcon"] title:@"Me" target:self action:@selector(newDocumentsFinder)];
     [_wm.desktop addIcon:[UIImage imageWithContentsOfFile:@"/Applications/MobileSafari.app/icon@2x~ipad.png"] title:@"Safari" target:self action:@selector(newBrowser)];
     
     return YES;
@@ -82,7 +82,7 @@
 
 - (IBAction)newDocumentsFinder
 {
-    [self showFinderForPath:[NSURL fileURLWithPath:NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0]]];
+    [self showFinderForPath:[NSURL fileURLWithPath:NSHomeDirectory()]];
 }
 
 - (BOOL)directoryViewer:(TCDirectoryViewController*)vc shouldPresentContentViewController:(TCDocumentViewerController*)document
