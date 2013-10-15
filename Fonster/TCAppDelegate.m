@@ -3,6 +3,7 @@
 #import "TCWindow.h"
 #import "TCDesktopViewController.h"
 #import "TCDirectoryViewController.h"
+#import "TCTextViewerController.h"
 
 /*
     yess:
@@ -50,6 +51,8 @@
     [_wm.desktop addIcon:[UIImage imageNamed:@"GenericDeviceIcon"] title:[NSString stringWithFormat:@"My %@", [[UIDevice currentDevice] localizedModel]] target:self action:@selector(newRootFinder)];
     [_wm.desktop addIcon:[UIImage imageNamed:@"HomeIcon"] title:@"Me" target:self action:@selector(newDocumentsFinder)];
     [_wm.desktop addIcon:[UIImage imageWithContentsOfFile:@"/Applications/MobileSafari.app/icon@2x~ipad.png"] title:@"Safari" target:self action:@selector(newBrowser)];
+    [_wm.desktop addIcon:[UIImage imageNamed:@"TextEdit"] title:@"New Text Document" target:self action:@selector(newEditor)];
+
     
     return YES;
 }
@@ -57,10 +60,7 @@
 - (IBAction)newBrowser
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"TCBrowser" bundle:nil];
-    TCWindow *w = [[TCWindow alloc]
-        initWithFrame:CGRectMake(50, 50, 300, 400)
-        rootViewController:[storyboard instantiateInitialViewController]
-    ];
+    TCWindow *w = [[TCWindow alloc] initWithRootViewController:[storyboard instantiateInitialViewController]];
     [_wm showWindow:w];
 }
 
@@ -68,10 +68,7 @@
 {
     TCDirectoryViewController *dir = [[TCDirectoryViewController alloc] initWithURL:path error:NULL];
     dir.delegate = self;
-    TCWindow *w = [[TCWindow alloc]
-        initWithFrame:CGRectMake(50, 50, 300, 400)
-        rootViewController:dir
-    ];
+    TCWindow *w = [[TCWindow alloc] initWithRootViewController:dir];
     [_wm showWindow:w];
 }
 
@@ -87,11 +84,33 @@
 
 - (BOOL)directoryViewer:(TCDirectoryViewController*)vc shouldPresentContentViewController:(TCDocumentViewerController*)document
 {
-    TCWindow *w = [[TCWindow alloc]
-        initWithFrame:CGRectMake(50, 50, 300, 400)
-        rootViewController:document
-    ];
+    TCWindow *w = [[TCWindow alloc] initWithRootViewController:document];
     [_wm showWindow:w];
     return NO;
 }
+
+- (IBAction)newEditor
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Create document named" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Create", nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex != [alertView firstOtherButtonIndex])
+        return;
+    
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:[alertView textFieldAtIndex:0].text];
+    if([[path pathExtension] isEqual:@""])
+        path = [path stringByAppendingPathExtension:@"txt"];
+    
+    if(![[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        [[NSFileManager defaultManager] createFileAtPath:path contents:[NSData data] attributes:nil];
+    }
+    TCTextViewerController *vc = [[TCTextViewerController alloc] initWithURL:[NSURL fileURLWithPath:path] error:NULL];
+    TCWindow *window = [[TCWindow alloc] initWithRootViewController:vc];
+    [_wm showWindow:window];
+}
+
 @end

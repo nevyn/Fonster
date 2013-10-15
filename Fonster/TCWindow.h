@@ -10,7 +10,7 @@
 @protocol TCWindowDelegate;
 
 @interface TCWindow : UIView
-- (id)initWithFrame:(CGRect)r rootViewController:(UIViewController*)rootViewController;
+- (id)initWithRootViewController:(UIViewController*)rootViewController;
 @property(readonly) UIViewController *rootViewController;
 @property(weak) id<TCWindowDelegate> delegate;
 - (IBAction)close:(id)sender;

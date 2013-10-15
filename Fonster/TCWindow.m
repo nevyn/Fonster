@@ -24,10 +24,11 @@ static CGRect gLastFrame;
 @end
 
 @implementation TCWindow
-- (id)initWithFrame:(CGRect)frame rootViewController:(UIViewController*)rootViewController;
+- (id)initWithRootViewController:(UIViewController*)rootViewController;
 {
-    if(!CGRectEqualToRect(gLastFrame, CGRectZero))
-        frame = gLastFrame;
+    CGRect frame = gLastFrame;
+    if(CGRectEqualToRect(gLastFrame, CGRectZero))
+        frame = CGRectMake(50, 50, 400, 400);
     
     if(!(self = [super initWithFrame:frame]))
         return nil;
