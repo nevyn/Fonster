@@ -19,6 +19,7 @@ static CGRect gLastFrame;
     CGRect _nonMaximizedFrame;
     UIAttachmentBehavior *_movementSpring;
     UIDynamicItemBehavior *_physics;
+    UITapGestureRecognizer *_tap;
 }
 @end
 
@@ -58,6 +59,10 @@ static CGRect gLastFrame;
     UIPanGestureRecognizer *resize = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(resize:)];
     resize.delegate = self;
     [_resizeWidget addGestureRecognizer:resize];
+    
+    _tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelClickthrough:)];
+    _tap.delegate = self;
+    [self addGestureRecognizer:_tap];
 
     return self;
 }
@@ -92,7 +97,19 @@ static CGRect gLastFrame;
 
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
 {
-    return ![self isMaximized];
+    return gestureRecognizer == _tap || ![self isMaximized];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    if(gestureRecognizer == _tap) {
+        if(![self isFirstResponder]) {
+            [self.delegate windowRequestsForeground:self];
+            return YES; // swallow touch
+        }
+        return NO;
+    }
+    return YES;
 }
 
 - (void)move:(UIPanGestureRecognizer*)grec
@@ -151,6 +168,12 @@ static CGRect gLastFrame;
         );
         gLastFrame = self.frame = r2;
     }
+}
+
+- (void)cancelClickthrough:(UIGestureRecognizer*)grec
+{
+    grec.enabled = NO;
+    grec.enabled = YES;
 }
 
 - (IBAction)close:(id)sender
