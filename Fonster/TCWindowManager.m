@@ -9,6 +9,7 @@
 #import "TCWindowManager.h"
 #import "TCWindow.h"
 #import "TCDesktopViewController.h"
+#import "TCTaskbar.h"
 
 @interface TCWindowManager () <TCWindowDelegate, UIDynamicAnimatorDelegate>
 {
@@ -25,8 +26,11 @@
         return nil;
     _windows = [NSMutableArray new];
     _desktop = [[TCDesktopViewController alloc] init];
+	_taskbar = [[TCTaskbar alloc] init];
     return self;
 }
+
+static const float kTaskbarHeight = 50;
 
 - (void)loadView
 {
@@ -43,7 +47,16 @@
     _desktop.collectionView.backgroundView = bg;
     _desktop.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     [_desktop didMoveToParentViewController:self];
-    
+	
+	[self addChildViewController:_taskbar];
+	[root addSubview:_taskbar.view];
+	CGRect r = root.bounds;
+	r.origin.y = r.size.height - kTaskbarHeight;
+	r.size.height = kTaskbarHeight;
+	_taskbar.view.frame = r;
+	_taskbar.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
+    [_taskbar didMoveToParentViewController:self];
+	
     _animator = [[UIDynamicAnimator alloc] initWithReferenceView:root];
     _animator.delegate = self;
     

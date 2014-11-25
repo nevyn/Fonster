@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 @class TCWindow;
 @class TCDesktopViewController;
+@class TCTaskbar;
 
 @interface TCWindowManager : UIViewController
 @property(readonly) TCDesktopViewController *desktop;
+@property(readonly) TCTaskbar *taskbar;
+
 - (id)init;
 - (void)showWindow:(TCWindow*)w;
 @end

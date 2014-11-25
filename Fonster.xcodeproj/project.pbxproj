@@ -41,6 +41,7 @@
 		05E8BB9B180DB23F005E8899 /* HomeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9A180DB23F005E8899 /* HomeIcon.png */; };
 		05E8BB9D180DB7E7005E8899 /* TextEdit.png in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9C180DB7E7005E8899 /* TextEdit.png */; };
 		05E8BB9F180DB88B005E8899 /* Desktop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05E8BB9E180DB88B005E8899 /* Desktop.jpg */; };
+		05FBEB321A25150E0098D57B /* TCTaskbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FBEB301A25150E0098D57B /* TCTaskbar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,8 @@
 		05E8BB9A180DB23F005E8899 /* HomeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HomeIcon.png; sourceTree = "<group>"; };
 		05E8BB9C180DB7E7005E8899 /* TextEdit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TextEdit.png; sourceTree = "<group>"; };
 		05E8BB9E180DB88B005E8899 /* Desktop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Desktop.jpg; sourceTree = "<group>"; };
+		05FBEB2F1A25150E0098D57B /* TCTaskbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCTaskbar.h; sourceTree = "<group>"; };
+		05FBEB301A25150E0098D57B /* TCTaskbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCTaskbar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +216,8 @@
 				05E8BB6718060425005E8899 /* TCWindowManager.m */,
 				05B971DD1804BE5400BCD658 /* TCWindow.h */,
 				05B971DE1804BE5400BCD658 /* TCWindow.m */,
+				05FBEB2F1A25150E0098D57B /* TCTaskbar.h */,
+				05FBEB301A25150E0098D57B /* TCTaskbar.m */,
 			);
 			name = "Window management";
 			sourceTree = "<group>";
@@ -327,6 +332,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = ThirdCog;
 				TargetAttributes = {
+					05B971AA1804BE3100BCD658 = {
+						DevelopmentTeam = M4Q2TE45WT;
+					};
 					05B971C51804BE3100BCD658 = {
 						TestTargetID = 05B971AA1804BE3100BCD658;
 					};
@@ -398,6 +406,7 @@
 				05E8BB8E1806C56E005E8899 /* TCDesktopViewController.m in Sources */,
 				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
 				05E8BB891806C462005E8899 /* TCVideoViewerController.m in Sources */,
+				05FBEB321A25150E0098D57B /* TCTaskbar.m in Sources */,
 				05E8BB801806C462005E8899 /* TCDocumentViewerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,10 +528,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fonster/Fonster-Prefix.pch";
 				INFOPLIST_FILE = "Fonster/Fonster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -532,10 +544,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Fonster/Fonster-Prefix.pch";
 				INFOPLIST_FILE = "Fonster/Fonster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
