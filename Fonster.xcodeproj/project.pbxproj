@@ -22,6 +22,10 @@
 		05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971DE1804BE5400BCD658 /* TCWindow.m */; };
 		05B971E11804BF0300BCD658 /* TCBrowser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05B971E01804BF0300BCD658 /* TCBrowser.storyboard */; };
 		05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B971E31804C02100BCD658 /* TCBrowserViewController.m */; };
+		05C92CE11A527E82003871CB /* TCArrayViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C92CDA1A527E82003871CB /* TCArrayViewerController.m */; };
+		05C92CE21A527E82003871CB /* TCDictionaryViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C92CDC1A527E82003871CB /* TCDictionaryViewerController.m */; };
+		05C92CE31A527E82003871CB /* TCJSONViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C92CDE1A527E82003871CB /* TCJSONViewerController.m */; };
+		05C92CE41A527E82003871CB /* TCPlistViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C92CE01A527E82003871CB /* TCPlistViewerController.m */; };
 		05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6718060425005E8899 /* TCWindowManager.m */; };
 		05E8BB7F1806C462005E8899 /* TCDVDirectoryWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB6E1806C462005E8899 /* TCDVDirectoryWatcher.m */; };
 		05E8BB801806C462005E8899 /* TCDocumentViewerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E8BB701806C462005E8899 /* TCDocumentViewerController.m */; };
@@ -76,6 +80,14 @@
 		05B971E01804BF0300BCD658 /* TCBrowser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TCBrowser.storyboard; sourceTree = "<group>"; };
 		05B971E21804C02100BCD658 /* TCBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCBrowserViewController.h; sourceTree = "<group>"; };
 		05B971E31804C02100BCD658 /* TCBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBrowserViewController.m; sourceTree = "<group>"; };
+		05C92CD91A527E82003871CB /* TCArrayViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCArrayViewerController.h; sourceTree = "<group>"; };
+		05C92CDA1A527E82003871CB /* TCArrayViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCArrayViewerController.m; sourceTree = "<group>"; };
+		05C92CDB1A527E82003871CB /* TCDictionaryViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDictionaryViewerController.h; sourceTree = "<group>"; };
+		05C92CDC1A527E82003871CB /* TCDictionaryViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCDictionaryViewerController.m; sourceTree = "<group>"; };
+		05C92CDD1A527E82003871CB /* TCJSONViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCJSONViewerController.h; sourceTree = "<group>"; };
+		05C92CDE1A527E82003871CB /* TCJSONViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCJSONViewerController.m; sourceTree = "<group>"; };
+		05C92CDF1A527E82003871CB /* TCPlistViewerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCPlistViewerController.h; sourceTree = "<group>"; };
+		05C92CE01A527E82003871CB /* TCPlistViewerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCPlistViewerController.m; sourceTree = "<group>"; };
 		05E8BB6618060425005E8899 /* TCWindowManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCWindowManager.h; sourceTree = "<group>"; };
 		05E8BB6718060425005E8899 /* TCWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCWindowManager.m; sourceTree = "<group>"; };
 		05E8BB6D1806C462005E8899 /* TCDVDirectoryWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCDVDirectoryWatcher.h; sourceTree = "<group>"; };
@@ -269,6 +281,14 @@
 				05E8BB7C1806C462005E8899 /* TCTextViewerController.m */,
 				05E8BB7D1806C462005E8899 /* TCVideoViewerController.h */,
 				05E8BB7E1806C462005E8899 /* TCVideoViewerController.m */,
+				05C92CD91A527E82003871CB /* TCArrayViewerController.h */,
+				05C92CDA1A527E82003871CB /* TCArrayViewerController.m */,
+				05C92CDB1A527E82003871CB /* TCDictionaryViewerController.h */,
+				05C92CDC1A527E82003871CB /* TCDictionaryViewerController.m */,
+				05C92CDD1A527E82003871CB /* TCJSONViewerController.h */,
+				05C92CDE1A527E82003871CB /* TCJSONViewerController.m */,
+				05C92CDF1A527E82003871CB /* TCPlistViewerController.h */,
+				05C92CE01A527E82003871CB /* TCPlistViewerController.m */,
 			);
 			path = Viewers;
 			sourceTree = "<group>";
@@ -395,14 +415,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05C92CE11A527E82003871CB /* TCArrayViewerController.m in Sources */,
 				05B971BB1804BE3100BCD658 /* main.m in Sources */,
 				05E8BB861806C462005E8899 /* TCDirectoryViewController.m in Sources */,
 				05B971DF1804BE5400BCD658 /* TCWindow.m in Sources */,
+				05C92CE41A527E82003871CB /* TCPlistViewerController.m in Sources */,
 				05E8BB881806C462005E8899 /* TCTextViewerController.m in Sources */,
+				05C92CE21A527E82003871CB /* TCDictionaryViewerController.m in Sources */,
 				05E8BB871806C462005E8899 /* TCImageViewerController.m in Sources */,
 				05E8BB6818060425005E8899 /* TCWindowManager.m in Sources */,
 				05E8BB7F1806C462005E8899 /* TCDVDirectoryWatcher.m in Sources */,
 				05B971E41804C02100BCD658 /* TCBrowserViewController.m in Sources */,
+				05C92CE31A527E82003871CB /* TCJSONViewerController.m in Sources */,
 				05E8BB8E1806C56E005E8899 /* TCDesktopViewController.m in Sources */,
 				05B971BF1804BE3100BCD658 /* TCAppDelegate.m in Sources */,
 				05E8BB891806C462005E8899 /* TCVideoViewerController.m in Sources */,
