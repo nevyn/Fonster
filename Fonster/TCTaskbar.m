@@ -69,9 +69,15 @@ static void *const kWindowsContext;
 	TCWindow *window = [self.wm valueForKey:@"windows"][indexPath.row];
 	
 	cell.contentMode = UIViewContentModeRedraw;
-	cell.text = window.navigationController.navigationBar.topItem.title;
+	cell.text = window.title;
+	[cell setNeedsDisplay];
 	
 	return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+	[self.wm moveWindowToForeground:[self.wm valueForKey:@"windows"][indexPath.row]];
 }
 
 - (void)viewWillLayoutSubviews

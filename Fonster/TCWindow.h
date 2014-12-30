@@ -15,6 +15,7 @@
 @property(readonly) UIViewController *rootViewController;
 @property(weak) id<TCWindowDelegate> delegate;
 - (IBAction)close:(id)sender;
+- (NSString*)title;
 @end
 
 @protocol TCWindowDelegate <NSObject>

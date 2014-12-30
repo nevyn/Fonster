@@ -205,4 +205,12 @@ static CGRect gLastFrame;
     }];
 }
 
+- (NSString*)title
+{
+	return self.navigationController.navigationBar.topItem.title;
+}
+- (NSString*)description
+{
+	return [[super description] stringByAppendingFormat:@" %@", self.title];
+}
 @end

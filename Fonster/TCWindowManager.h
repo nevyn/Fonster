@@ -17,4 +17,5 @@
 
 - (id)init;
 - (void)showWindow:(TCWindow*)w;
+- (void)moveWindowToForeground:(TCWindow*)window;
 @end

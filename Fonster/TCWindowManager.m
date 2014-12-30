@@ -13,7 +13,7 @@
 
 @interface TCWindowManager () <TCWindowDelegate, UIDynamicAnimatorDelegate>
 {
-    NSMutableArray *_windows;
+    NSMutableArray *_windows; // first object = on top
     UIDynamicAnimator *_animator;
     int _tabIndex;
 }
@@ -65,7 +65,7 @@ static const float kTaskbarHeight = 50;
 
 - (void)showWindow:(TCWindow*)w
 {
-    [[self mutableArrayValueForKey:@"windows"] addObject:w];
+    [[self mutableArrayValueForKey:@"windows"] insertObject:w atIndex:0];
     w.delegate = self;
     [self addChildViewController:w.navigationController];
     
@@ -106,9 +106,13 @@ static const float kTaskbarHeight = 50;
 
 - (void)windowRequestsForeground:(TCWindow *)window
 {
+	[self moveWindowToForeground:window];
+}
+- (void)moveWindowToForeground:(TCWindow*)window
+{
     [self.view addSubview:window];
     [[self mutableArrayValueForKey:@"windows"] removeObject:window];
-	[[self mutableArrayValueForKey:@"windows"] addObject:window];
+	[[self mutableArrayValueForKey:@"windows"] insertObject:window atIndex:0];
     [window becomeFirstResponder];
 }
 
@@ -137,14 +141,13 @@ static const float kTaskbarHeight = 50;
 - (IBAction)cycleWindows:(id)sender
 {
     _tabIndex = (_tabIndex - 1) % _windows.count;
-    [self windowRequestsForeground:_windows[_tabIndex]];
+    [self moveWindowToForeground:_windows[_tabIndex]];
 }
 
 - (IBAction)cycleWindowsReverse:(id)sender
 {
     _tabIndex = (_tabIndex + 1) % _windows.count;
-    [self windowRequestsForeground:_windows[_tabIndex]];
+    [self moveWindowToForeground:_windows[_tabIndex]];
 }
-
 
 @end
