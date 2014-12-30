@@ -21,7 +21,7 @@ static void *const kWindowsContext;
 @end
 
 @interface TCTaskbarLayout : UICollectionViewLayout
-@property(nonatomic) int count;
+@property(nonatomic) NSUInteger count;
 @property(nonatomic) CGSize size;
 @end
 
@@ -53,13 +53,13 @@ static void *const kWindowsContext;
 }
 - (void)windowsChanged
 {
-	((TCTaskbarLayout*)self.collectionViewLayout).count = [[self.wm valueForKey:@"windows"] count];
+	((TCTaskbarLayout*)self.collectionViewLayout).count = [(NSArray*)[self.wm valueForKey:@"windows"] count];
 	[self.collectionView reloadData];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return [[self.wm valueForKeyPath:@"windows"] count];
+	return [(NSArray*)[self.wm valueForKeyPath:@"windows"] count];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
