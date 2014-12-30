@@ -26,7 +26,7 @@
         return nil;
     _windows = [NSMutableArray new];
     _desktop = [[TCDesktopViewController alloc] init];
-	_taskbar = [[TCTaskbar alloc] init];
+	_taskbar = [[TCTaskbar alloc] initWithWindowManager:self];
     return self;
 }
 
@@ -65,7 +65,7 @@ static const float kTaskbarHeight = 50;
 
 - (void)showWindow:(TCWindow*)w
 {
-    [_windows addObject:w];
+    [[self mutableArrayValueForKey:@"windows"] addObject:w];
     w.delegate = self;
     [self addChildViewController:w.navigationController];
     
@@ -99,7 +99,7 @@ static const float kTaskbarHeight = 50;
         if(_windows.count > 1)
             [self windowRequestsForeground:_windows[_windows.count-2]];
     } completion:^(BOOL finished) {
-        [_windows removeObject:w];
+        [[self mutableArrayValueForKey:@"windows"] removeObject:w];
         [w.navigationController removeFromParentViewController];
     }]; 
 }
@@ -107,7 +107,8 @@ static const float kTaskbarHeight = 50;
 - (void)windowRequestsForeground:(TCWindow *)window
 {
     [self.view addSubview:window];
-    [_windows removeObject:window]; [_windows addObject:window];
+    [[self mutableArrayValueForKey:@"windows"] removeObject:window];
+	[[self mutableArrayValueForKey:@"windows"] addObject:window];
     [window becomeFirstResponder];
 }
 

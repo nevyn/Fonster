@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+@class TCWindowManager;
 
-@interface TCTaskbar : UIViewController
-
+@interface TCTaskbar : UICollectionViewController
+- (instancetype)initWithWindowManager:(TCWindowManager*)wm;
 @end
