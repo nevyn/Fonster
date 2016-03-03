@@ -17,8 +17,6 @@ static CGRect gLastFrame;
     UIButton *_closeWidget;
     CGRect _startFrame;
     CGRect _nonMaximizedFrame;
-    UIAttachmentBehavior *_movementSpring;
-    UIDynamicItemBehavior *_physics;
     UITapGestureRecognizer *_tap;
 }
 @end
@@ -114,21 +112,10 @@ static CGRect gLastFrame;
 
 - (void)move:(UIPanGestureRecognizer*)grec
 {
-    UIDynamicAnimator *animator = [self.delegate animatorForWindow:self];
-    
     if(grec.state == UIGestureRecognizerStateBegan) {
         [self.delegate windowRequestsForeground:self];
         CGRect r = _startFrame = self.frame;
         r = CGRectOffset(r, r.size.width/2, r.size.height/2);
-        _movementSpring = [[UIAttachmentBehavior alloc] initWithItem:self attachedToAnchor:r.origin];
-        _movementSpring.length = 0;
-        _movementSpring.damping = 1;
-        [animator addBehavior:_movementSpring];
-        if(!_physics) {
-            _physics = [[UIDynamicItemBehavior alloc] initWithItems:@[self]];
-            _physics.resistance = 20;
-            [animator addBehavior:_physics];
-        }
     } else if(grec.state == UIGestureRecognizerStateChanged) {
         CGRect r = self.frame;
         CGPoint diff = [grec translationInView:self];
@@ -138,18 +125,8 @@ static CGRect gLastFrame;
         };
         gLastFrame = r;
         r = CGRectOffset(r, r.size.width/2, r.size.height/2);
-        _movementSpring.anchorPoint = r.origin;
-        // Physics is buggy; if it's disabled, set position manually.
-        if(!animator) {
-            self.frame = gLastFrame;
-        }
+		self.frame = gLastFrame;
     } else if(grec.state == UIGestureRecognizerStateEnded || grec.state == UIGestureRecognizerStateCancelled) {
-        UIPushBehavior *push = [[UIPushBehavior alloc] initWithItems:@[self] mode:UIPushBehaviorModeInstantaneous];
-        push.magnitude = 1;
-        push.pushDirection = CGVectorMake([grec velocityInView:self].x*0.2, [grec velocityInView:self].y*0.2);
-        [animator addBehavior:push];
-        [animator removeBehavior:_movementSpring];
-        _movementSpring = nil;
     }
 }
 
@@ -178,7 +155,6 @@ static CGRect gLastFrame;
 
 - (IBAction)close:(id)sender
 {
-    [[self.delegate animatorForWindow:self] removeBehavior:_physics];
     [self.delegate windowRequestsClose:self];
 }
 
@@ -190,7 +166,6 @@ static CGRect gLastFrame;
 - (IBAction)maximize:(id)sender
 {
     int fullscreenMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [[self.delegate animatorForWindow:self] removeBehavior:_physics];
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.65 initialSpringVelocity:20 options:0 animations:^{
         if(self.autoresizingMask != fullscreenMask) {
             _nonMaximizedFrame = self.frame;
@@ -201,7 +176,6 @@ static CGRect gLastFrame;
             self.frame = _nonMaximizedFrame;
         }
     } completion:^(BOOL finished) {
-        [[self.delegate animatorForWindow:self] addBehavior:_physics];
     }];
 }
 
@@ -214,3 +188,8 @@ static CGRect gLastFrame;
 	return [[super description] stringByAppendingFormat:@" %@", self.title];
 }
 @end
+
+@implementation TCWindowCell
+
+@end
+

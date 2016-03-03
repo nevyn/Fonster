@@ -21,5 +21,8 @@
 @protocol TCWindowDelegate <NSObject>
 - (void)windowRequestsClose:(TCWindow*)window;
 - (void)windowRequestsForeground:(TCWindow*)window;
-- (UIDynamicAnimator*)animatorForWindow:(TCWindow*)window;
+@end
+
+@interface TCWindowCell : UICollectionViewCell
+
 @end

@@ -55,7 +55,8 @@
     [_wm.desktop addIcon:[UIImage imageNamed:@"HomeIcon"] title:@"Me" target:self action:@selector(newDocumentsFinder)];
     [_wm.desktop addIcon:[UIImage imageWithContentsOfFile:@"/Applications/MobileSafari.app/icon@2x~ipad.png"] title:@"Safari" target:self action:@selector(newBrowser)];
     [_wm.desktop addIcon:[UIImage imageNamed:@"TextEdit"] title:@"TextEdit" target:self action:@selector(newEditor)];
-
+	
+	[self newDocumentsFinder];
     
     return YES;
 }

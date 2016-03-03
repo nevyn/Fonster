@@ -11,7 +11,7 @@
 @class TCDesktopViewController;
 @class TCTaskbar;
 
-@interface TCWindowManager : UIViewController
+@interface TCWindowManager : UICollectionViewController
 @property(readonly) TCDesktopViewController *desktop;
 @property(readonly) TCTaskbar *taskbar;
 

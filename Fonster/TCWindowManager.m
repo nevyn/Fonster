@@ -13,79 +13,38 @@
 
 @interface TCWindowManager () <TCWindowDelegate, UIDynamicAnimatorDelegate>
 {
-    NSMutableArray *_windows; // first object = on top
-    UIDynamicAnimator *_animator;
     int _tabIndex;
+	NSMutableArray *_windows;
 }
 @end
 
 @implementation TCWindowManager
 - (id)init
 {
-    if(!(self = [super init]))
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.sectionInset = UIEdgeInsetsMake(20, 20, 20, 20);
+    layout.itemSize = CGSizeMake(300, 300);
+    if(!(self = [super initWithCollectionViewLayout:layout]))
         return nil;
-    _windows = [NSMutableArray new];
+
+	_windows = [NSMutableArray new];
     _desktop = [[TCDesktopViewController alloc] init];
 	_taskbar = [[TCTaskbar alloc] initWithWindowManager:self];
+	
+	[self.collectionView registerClass:[TCWindowCell class] forCellWithReuseIdentifier:@"WindowCell"];
     return self;
-}
-
-static const float kTaskbarHeight = 50;
-
-- (void)loadView
-{
-    UIView *root = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Desktop.jpg"]];
-    bg.frame = root.bounds;
-    bg.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-    bg.contentMode = UIViewContentModeScaleAspectFill;
-    root.backgroundColor = [UIColor whiteColor];
-    
-    [self addChildViewController:_desktop];
-    [root addSubview:_desktop.view];
-    _desktop.view.frame = root.bounds;
-    _desktop.collectionView.backgroundView = bg;
-    _desktop.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [_desktop didMoveToParentViewController:self];
-	
-	[self addChildViewController:_taskbar];
-	[root addSubview:_taskbar.view];
-	CGRect r = root.bounds;
-	r.origin.y = r.size.height - kTaskbarHeight;
-	r.size.height = kTaskbarHeight;
-	_taskbar.view.frame = r;
-	_taskbar.view.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin;
-    [_taskbar didMoveToParentViewController:self];
-	
-    _animator = [[UIDynamicAnimator alloc] initWithReferenceView:root];
-    _animator.delegate = self;
-    
-    self.view = root;
 }
 
 - (void)showWindow:(TCWindow*)w
 {
-    [[self mutableArrayValueForKey:@"windows"] insertObject:w atIndex:0];
+    [[self mutableArrayValueForKey:@"windows"] addObject:w];
     w.delegate = self;
     [self addChildViewController:w.navigationController];
-    
-    w.alpha = 0;
-    w.transform = CGAffineTransformMakeScale(0.7, 0.7);
-    [self.view addSubview:w];
-    [UIView animateWithDuration:0.45 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
-        w.transform = CGAffineTransformIdentity;
-        w.alpha = 1;
-        [w.navigationController didMoveToParentViewController:self];
-        [w becomeFirstResponder];
-    } completion:nil];
-}
-
-- (void)dynamicAnimatorDidPause:(UIDynamicAnimator*)animator;
-{
-    for(UIDynamicBehavior *behavior in animator.behaviors.copy) {
-        if([behavior isKindOfClass:[UIPushBehavior class]])
-            [animator removeBehavior:behavior];
-    }
+	
+	[self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:_windows.count-1 inSection:0]]];
+	
+	[w.navigationController didMoveToParentViewController:self];
+	[w becomeFirstResponder];
 }
 
 #pragma mark window delegate
@@ -93,15 +52,15 @@ static const float kTaskbarHeight = 50;
 - (void)windowRequestsClose:(TCWindow *)w
 {
     [w.navigationController willMoveToParentViewController:nil];
-    [UIView animateWithDuration:0.65 delay:0 usingSpringWithDamping:1 initialSpringVelocity:40 options:0 animations:^{
-        w.transform = CGAffineTransformMakeScale(0.7, 0.7);
-        w.alpha = 0;
-        if(_windows.count > 1)
-            [self windowRequestsForeground:_windows[_windows.count-2]];
-    } completion:^(BOOL finished) {
-        [[self mutableArrayValueForKey:@"windows"] removeObject:w];
-        [w.navigationController removeFromParentViewController];
-    }]; 
+	
+	NSUInteger oldIndex = [_windows indexOfObject:w];
+	[[self mutableArrayValueForKey:@"windows"] removeObject:w];
+	[w.navigationController removeFromParentViewController];
+	
+	[self.collectionView deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:oldIndex inSection:0]]];
+	
+	if(_windows.count > 1)
+		[self windowRequestsForeground:_windows.lastObject];
 }
 
 - (void)windowRequestsForeground:(TCWindow *)window
@@ -110,16 +69,25 @@ static const float kTaskbarHeight = 50;
 }
 - (void)moveWindowToForeground:(TCWindow*)window
 {
-    [self.view addSubview:window];
-    [[self mutableArrayValueForKey:@"windows"] removeObject:window];
-	[[self mutableArrayValueForKey:@"windows"] insertObject:window atIndex:0];
+	// TODO
     [window becomeFirstResponder];
 }
 
-- (UIDynamicAnimator*)animatorForWindow:(TCWindow*)window
+#pragma mark Collection view
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return nil;
-    return _animator;
+    return _windows.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    TCWindow *window = _windows[indexPath.item];
+	TCWindowCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WindowCell" forIndexPath:indexPath];
+	window.frame = cell.frame;
+	window.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	
+	[cell.contentView addSubview:window];
+    return cell;
 }
 
 #pragma mark Responder
@@ -140,14 +108,16 @@ static const float kTaskbarHeight = 50;
 
 - (IBAction)cycleWindows:(id)sender
 {
-    _tabIndex = (_tabIndex - 1) % _windows.count;
-    [self moveWindowToForeground:_windows[_tabIndex]];
+	// TODO
+    //_tabIndex = (_tabIndex - 1) % _windows.count;
+    //[self moveWindowToForeground:_windows[_tabIndex]];
 }
 
 - (IBAction)cycleWindowsReverse:(id)sender
 {
-    _tabIndex = (_tabIndex + 1) % _windows.count;
-    [self moveWindowToForeground:_windows[_tabIndex]];
+	// TODO
+    //_tabIndex = (_tabIndex + 1) % _windows.count;
+    //[self moveWindowToForeground:_windows[_tabIndex]];
 }
 
 @end
